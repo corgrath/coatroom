@@ -22,13 +22,6 @@ developers understand how and when to use these components.
 
 
 
-Current status
-------------------------------------------------------------------------------------------------------------------------
-Coatroom is still under preliminary development. Please wait for version 1+ to use this properly, which should be 
-before Christmas 2015. All commits will be squashed then as well.
-
-
-
 
 Quick guide
 ------------------------------------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
   "name": "coatroom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Coatroom is an easy way to to create a front end component library. A tool that helps you create, organize and get an overview of all your HTML and CSS components.",
   "author": "Christoffer Pettersson (christoffer.me) <christoffer[at]christoffer[dot]me>",
   "main": "main.js",
