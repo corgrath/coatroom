@@ -1,0 +1,70 @@
+/**
+  * @name Text inputs
+  * @description Use this for standard text inputs.
+  *
+  * @state textinput-hover - The hover state
+  * @state textinput-focus - The hover state
+  * @state textinput-disabled - The disabled state
+  * @state textinput-invalid - When the input text is invalid
+  */
+
+.textinput {
+	position: relative;
+	&-input {
+		margin-top: 25px;
+		width: 100%;
+		border: 1px solid @colorConcrete;
+		padding: 5px;
+		box-sizing: border-box;
+		transition: all 0.5s;
+		.textinput-disabled &,
+		&:disabled,
+		.textinput-focus &,
+		&:focus {
+			& + label {
+				opacity: 1;
+			}
+		}
+		.textinput-focus &,
+		&:focus {
+			border: 1px solid @colorSky;
+			color: @colorConcrete !important;
+			background: none !important;
+		}
+		.textinput-hover &,
+		&:hover {
+			color: @colorClouds;
+			background: @colorSky;
+		}
+		.textinput-active &,
+		&:active {
+			border: 1px solid @colorSky;
+		}
+		.textinput-invalid &,
+		&:invalid {
+			border: 1px solid @colorLava;
+			background: lighten(@colorLava, 20);
+			color: @colorClouds;
+			& + label {
+				color: @colorLava;
+			}
+		}
+		.textinput-disabled &,
+		&:disabled {
+			background: greyscale(@colorConcrete) !important;
+			color: greyscale(@colorClouds) !important;
+			cursor: default;
+			& + label {
+				opacity: 1;
+			}
+		}
+	}
+	&-label {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-weight: bold;
+		transition: opacity 0.5s;
+	}
+}

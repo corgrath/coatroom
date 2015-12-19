@@ -1,0 +1,51 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ */
+
+var test = require( "tape" );
+
+var dssService = require( "./dss-service.js" );
+
+test( "works correctly", function( t ) {
+
+	t.plan( 5 );
+
+	t.deepEqual( dssService._parseAnnotation( "confirm" ), {
+		name: "confirm",
+		description: ""
+	} );
+
+	t.deepEqual( dssService._parseAnnotation( "confirm a confirm button" ), {
+		name: "confirm",
+		description: "a confirm button"
+	} );
+
+	t.deepEqual( dssService._parseAnnotation( "confirm - a confirm button" ), {
+		name: "confirm",
+		description: "a confirm button"
+	} );
+
+	t.deepEqual( dssService._parseAnnotation( "confirm -- a confirm button" ), {
+		name: "confirm",
+		description: "-- a confirm button"
+	} );
+
+	t.deepEqual( dssService._parseAnnotation( "confirm-- a confirm button" ), {
+		name: "confirm--",
+		description: "a confirm button"
+	} );
+
+} );

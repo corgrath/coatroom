@@ -1,0 +1,51 @@
+/**
+  * @name Buttons
+  * @description This is an ordinary button.
+  *
+  * @state btn-hover - The hover state
+  * @state btn-active - The active state
+  * @state btn-disabled - The disabled state
+  *
+  * @type primary - a primary button
+  * @type success - a success button
+  * @type warning - used for cautions actions
+  * @type danger - used for dangerous actions
+  */
+
+.btn-states(@textColor, @bgColor) {
+	color: @textColor;
+	background: @bgColor;
+	&.btn-hover,
+	&:hover {
+		background: darken(@bgColor, 10);
+	}
+	&.btn-active,
+	&:active {
+		background: darken(@bgColor, 20);
+	}
+	&.btn-disabled,
+	&:disabled {
+		background: greyscale(@bgColor);
+		cursor: default;
+	}
+}
+
+.btn {
+	padding: 10px 20px;
+	text-align: center;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	&-primary {
+		.btn-states(@colorClouds, @colorSky);
+	}
+	&-success {
+		.btn-states(@colorClouds, @colorEmerald);
+	}
+	&-warning {
+		.btn-states(@colorClouds, @colorOrange);
+	}
+	&-danger {
+		.btn-states(@colorClouds, @colorLava);
+	}
+}
