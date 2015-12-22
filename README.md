@@ -1,7 +1,11 @@
 [![npm](https://img.shields.io/npm/v/coatroom.svg)](https://www.npmjs.com/package/coatroom)
 [![npm](https://img.shields.io/npm/dt/coatroom.svg)](https://www.npmjs.com/package/coatroom)
+[![npm](https://img.shields.io/npm/dm/coatroom.svg)](https://www.npmjs.com/package/coatroom)
 [![npm](https://img.shields.io/npm/l/coatroom.svg)](http://opensource.org/licenses/Apache-2.0)
-
+[![npm](https://img.shields.io/github/stars/corgrath/coatroom.svg)](https://github.com/corgrath/coatroom/stargazers/)
+[![npm](https://img.shields.io/github/issues/corgrath/coatroom.svg)](https://github.com/corgrath/coatroom/issues/)
+[![npm](https://img.shields.io/github/forks/corgrath/coatroom.svg)](https://github.com/corgrath/coatroom/network/)
+[![npm](https://img.shields.io/github/watchers/corgrath/coatroom.svg)](https://github.com/corgrath/coatroom/watchers/)
 
 
 
