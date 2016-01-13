@@ -55,7 +55,7 @@ module.exports.generate = function( documentTitle, css, styleguides, components 
 	html += "table { width: 100%;   border-collapse: collapse; }";
 	html += "table thead tr { background: white; }";
 	html += "table th, table td {";
-	html += "padding: 10px; border: 1px solid #5AB6F6;";
+	html += "padding: 10px; border: 1px solid #5AB6F6; vertical-align: top;";
 	html += "}";
 
 	html += "a { text-decoration: none; color: #3498db; }";
