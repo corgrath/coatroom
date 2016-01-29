@@ -127,33 +127,32 @@ module.exports.generate = function( documentTitle, css, styleguides, components 
 				html += "<table>";
 
 				// Only render the headers if there multiple states
-				if ( component.dss.states && component.dss.states.length ) {
+				//				if ( component.dss.states && component.dss.states.length ) {
 
-					html += "<thead>";
-					html += "<tr>";
-					html += "<th>type / state</th>";
-					html += "<th>default</th>";
+				html += "<thead>";
+				html += "<tr>";
+				html += "<th>type / state</th>";
+				html += "<th>default</th>";
 
-					if ( component.dss.states ) {
-						component.dss.states.forEach( function( state ) {
-							html += "<th>" + state.name + "</th>";
-						} );
-					}
-
-					html += "</tr>";
-					html += "</thead>";
+				if ( component.dss.states ) {
+					component.dss.states.forEach( function( state ) {
+						html += "<th>" + state.name + "</th>";
+					} );
 				}
 
-				html += "<tbody>";
+				html += "</tr>";
+				html += "</thead>";
+				//				}
 
-				{
+				html += "<tbody>"; {
 
 					// Default type
 					html += "<tr>";
 					// Only render the default column, if we have multiple modifiers
-					if ( component.dss.states && component.dss.states.length ) {
-						html += "<td>default</td>";
-					} {
+					//					if ( component.dss.states && component.dss.states.length ) {
+					html += "<td>default</td>";
+					//					}
+					{
 
 						// Default type
 						html += "<td>" + buildTemplateWithClasses( component ) + "</td>";

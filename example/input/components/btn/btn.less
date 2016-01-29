@@ -6,7 +6,6 @@
   * @state btn-active - The active state
   * @state btn-disabled - The disabled state
   *
-  * @type primary - a primary button
   * @type success - a success button
   * @type warning - used for cautions actions
   * @type danger - used for dangerous actions
@@ -36,9 +35,7 @@
 	cursor: pointer;
 	border: none;
 	border-radius: 5px;
-	&-primary {
-		.btn-states(@colorClouds, @colorSky);
-	}
+	.btn-states(@colorClouds, @colorSky);
 	&-success {
 		.btn-states(@colorClouds, @colorEmerald);
 	}

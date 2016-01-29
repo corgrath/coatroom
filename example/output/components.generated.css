@@ -41,11 +41,6 @@
   * @name Buttons
   * @description This is an ordinary button.
   *
-  * @state btn-hover - The hover state
-  * @state btn-active - The active state
-  * @state btn-disabled - The disabled state
-  *
-  * @type primary - a primary button
   * @type success - a success button
   * @type warning - used for cautions actions
   * @type danger - used for dangerous actions
@@ -56,21 +51,19 @@
   cursor: pointer;
   border: none;
   border-radius: 5px;
-}
-.btn-primary {
   color: #ecf0f1;
   background: #3498db;
 }
-.btn-primary.btn-hover,
-.btn-primary:hover {
+.btn.btn-hover,
+.btn:hover {
   background: #217dbb;
 }
-.btn-primary.btn-active,
-.btn-primary:active {
+.btn.btn-active,
+.btn:active {
   background: #196090;
 }
-.btn-primary.btn-disabled,
-.btn-primary:disabled {
+.btn.btn-disabled,
+.btn:disabled {
   background: #888888;
   cursor: default;
 }
