@@ -70,6 +70,14 @@ module.exports.validate = function validate( configuration ) {
 
 			}
 
+			if ( configuration.input.lessModifyVars !== undefined ) {
+
+				if ( !assert.isObject( configuration.input.lessModifyVars ) ) {
+					throw new Error( "Input lessModifyVars configuration is not an object." );
+				}
+
+			}
+
 			if ( configuration.input.styleguides !== undefined ) {
 
 				if ( !assert.isObject( configuration.input.styleguides ) ) {
@@ -147,7 +155,7 @@ module.exports.validate = function validate( configuration ) {
 	 */
 
 	validateObjectProperties( configuration, "", [ "title", "input", "output", "validation" ] );
-	validateObjectProperties( configuration.input, "input", [ "components", "less", "scripts", "styleguides" ] );
+	validateObjectProperties( configuration.input, "input", [ "components", "less", "lessModifyVars", "scripts", "styleguides" ] );
 	validateObjectProperties( configuration.output, "output", [ "overview", "less", "css" ] );
 	validateObjectProperties( configuration.validation, "validation", [ "disallowedCSSRules", "disallowedCSSUnits" ] );
 

@@ -104,6 +104,30 @@ test( "complain input.less is not an array", function( t ) {
 
 } );
 
+test( "complain input.lessModifyVars is not an object", function( t ) {
+
+	t.plan( 1 );
+
+	var configuration = {
+		title: "title",
+		input: {
+			components: "/components/",
+			lessModifyVars: "lessModifyVars"
+		},
+		output: {
+			overview: "overview.html",
+			less: "components.less"
+		}
+	};
+
+	try {
+		validateConfigurationsService.validate( configuration );
+	} catch ( e ) {
+		t.equals( e.message, "Input lessModifyVars configuration is not an object." );
+	}
+
+} );
+
 test( "complain input.less is an empty array", function( t ) {
 
 	t.plan( 1 );

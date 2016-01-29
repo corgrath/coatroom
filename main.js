@@ -130,7 +130,7 @@ function build( configuration ) {
 
 		fileService.writeFile( configuration.output.less, allLESS );
 
-		return lessService.build( allLESS, configuration.output.less ).then( function( css ) {
+		return lessService.build( allLESS, configuration.output.less, configuration.input.lessModifyVars ).then( function( css ) {
 
 			// Validate the CSS
 			logUtil.log( "Main", "Will now validate the CSS." );

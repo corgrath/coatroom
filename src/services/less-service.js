@@ -18,10 +18,11 @@
 var Promise = require( "bluebird" );
 var libLESS = Promise.promisifyAll( require( "less" ) );
 
-module.exports.build = function( lessSource, outputFilename ) {
+module.exports.build = function( lessSource, outputFilename, lessModifyVars ) {
 
 	var options = {
-		filename: outputFilename
+		filename: outputFilename,
+		modifyVars: lessModifyVars
 	};
 
 	return libLESS.render( lessSource, options ).then( function( output ) {

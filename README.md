@@ -60,6 +60,7 @@ In order to invoke Coatroom, a configuration object is required. An example of t
 | `input {object}`													| 																																												|
 | `input.components {string}`										| Path to the folder where the components are located.																															|
 | `input.less {array of strings} [optional]`						| An array of .less files. These files will automatically be prepended to the generated .less file. If your components or style guides use any shared LESS use this option.		|
+| `input.lessModifyVars {object} [optional]`						| An object with modified LESS variables supported by the [LESS tool](technology-less-modifyvars)                                   		                           			|
 | `input.styleguides {object} [optional]`							| An object to add external style guide documents. Keys is the document title, value is the path to the file.																	|
 | `input.scripts {array of strings} [optional]`						| An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                	|
 | `output {object}`													| 																																												|
@@ -184,6 +185,7 @@ Coatroom is licensed under the [Apache License, Version 2.0](http://opensource.o
 
 
 [technology-less]:					http://lesscss.org/
+[technology-less-modifyvars]:		http://lesscss.org/usage/#command-line-usage-modify-variable
 [technology-markdown]:				https://daringfireball.net/projects/markdown/
 [technology-dss]:					https://www.npmjs.com/package/dss/
 [technology-html]:					https://en.wikipedia.org/wiki/HTML
