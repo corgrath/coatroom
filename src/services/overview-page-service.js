@@ -39,7 +39,7 @@ function buildTemplateWithClasses( component, type, state ) {
 	} );
 }
 
-module.exports.generate = function( documentTitle, css, styleguides, components ) {
+module.exports.generate = function( documentTitle, scripts, css, styleguides, components ) {
 
 	var html = "";
 
@@ -203,6 +203,12 @@ module.exports.generate = function( documentTitle, css, styleguides, components 
 
 	}
 
+	if ( scripts ) {
+		html += "<!-- included external scripts -->";
+		html += "<script type=\"text/javascript\">";
+		html += scripts;
+		html += "</script>";
+	}
 	html += "<script src='https://cdn.jsdelivr.net/highlight.js/9.0.0/highlight.min.js'></script>";
 	html += "<script>hljs.initHighlightingOnLoad();</script>";
 

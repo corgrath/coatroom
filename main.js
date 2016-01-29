@@ -24,6 +24,7 @@ var lessService = require( "./src/services/less-service.js" );
 var dssService = require( "./src/services/dss-service.js" );
 var markdownService = require( "./src/services/markdown-service.js" );
 var overviewPageService = require( "./src/services/overview-page-service.js" );
+var inputScriptsService = require( "./src/services/input-scripts-service.js" );
 var validateConfigurationsService = require( "./src/services/validate-configurations-service.js" );
 var cssService = require( "./src/services/css-service.js" );
 var logUtil = require( "./src/utils/log-util.js" );
@@ -39,7 +40,7 @@ function getComponentData( sourceFolder, componentDirectoryName ) {
 
 		// Add the template
 		var template = fileService.readFile( fileService.join( sourceFolder, componentDirectoryName, componentDirectoryName + ".mustache" ) );
-		//console.log("template", template);
+
 		component.template = template;
 
 		// Add the style guide markdown
@@ -104,6 +105,8 @@ function build( configuration ) {
 		}
 	}
 
+	var scripts = inputScriptsService.getScriptsFromConfiguration( configuration );
+
 	if ( configuration.input.less ) {
 		logUtil.log( "Main", "Will now read in all LESS input files." );
 		allLESS += fileService.concatenate( configuration.input.less );
@@ -142,7 +145,7 @@ function build( configuration ) {
 			}
 
 			// Generate the overview page
-			var html = overviewPageService.generate( configuration.title, css, styleguides, components );
+			var html = overviewPageService.generate( configuration.title, scripts, css, styleguides, components );
 			fileService.writeFile( configuration.output.overview, html );
 
 			var buildDuration = new Date().getTime() - timeStarted;

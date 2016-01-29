@@ -61,6 +61,7 @@ In order to invoke Coatroom, a configuration object is required. An example of t
 | `input.components {string}`										| Path to the folder where the components are located.																															|
 | `input.less {array of strings} [optional]`						| An array of .less files. These files will automatically be prepended to the generated .less file. If your components or style guides use any shared LESS use this option.		|
 | `input.styleguides {object} [optional]`							| An object to add external style guide documents. Keys is the document title, value is the path to the file.																	|
+| `input.scripts {array of strings} [optional]`						| An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                	|
 | `output {object}`													| 																																												|
 | `output.overview {string}`										| Path to a file which will be the generated overview page.																														|
 | `output.less {string}`											| Path to a file which will be the generated concatenated LESS file.																											|

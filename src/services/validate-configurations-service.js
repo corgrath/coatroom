@@ -78,6 +78,18 @@ module.exports.validate = function validate( configuration ) {
 
 			}
 
+			if ( configuration.input.scripts !== undefined ) {
+
+				if ( !assert.isArray( configuration.input.scripts ) ) {
+					throw new Error( "Input scripts configuration is not an array." );
+				}
+
+				if ( configuration.input.scripts.length === 0 ) {
+					throw new Error( "Input scripts configuration cannot be empty." );
+				}
+
+			}
+
 		}
 
 		if ( !configuration.output ) {
@@ -135,7 +147,7 @@ module.exports.validate = function validate( configuration ) {
 	 */
 
 	validateObjectProperties( configuration, "", [ "title", "input", "output", "validation" ] );
-	validateObjectProperties( configuration.input, "input", [ "components", "less", "", "styleguides" ] );
+	validateObjectProperties( configuration.input, "input", [ "components", "less", "scripts", "styleguides" ] );
 	validateObjectProperties( configuration.output, "output", [ "overview", "less", "css" ] );
 	validateObjectProperties( configuration.validation, "validation", [ "disallowedCSSRules", "disallowedCSSUnits" ] );
 

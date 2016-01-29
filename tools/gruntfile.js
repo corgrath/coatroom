@@ -46,13 +46,15 @@ module.exports = function( grunt ) {
 			all: [
 				"./gruntfile.js",
 				"../main.js",
-				"../src/**/*.js"
+				"../src/**/*.js",
+				"../example/**/*.js"
 			],
 			options: {
 				"globals": {
-					"require": true,
-					"module": true,
-					"Buffer": true
+					require: true,
+					module: true,
+					Buffer: true,
+					console: true
 				},
 				// http://jshint.com/docs/options/#esversion
 				// https://github.com/jshint/jshint/blob/master/examples/.jshintrc

@@ -45,7 +45,10 @@ test( "that all is valid", function( t ) {
 			styleguides: {
 				"Introduction": "example/input/styleguides/introduction.md",
 				"Colors": "example/input/styleguides/colors.md"
-			}
+			},
+			scripts: [
+				"example/input/scripts/console-log.js"
+			]
 		},
 		output: {
 			overview: "example/output/components.generated.html",
@@ -121,6 +124,30 @@ test( "complain input.less is an empty array", function( t ) {
 		validateConfigurationsService.validate( configuration );
 	} catch ( e ) {
 		t.equals( e.message, "Input less configuration cannot be empty." );
+	}
+
+} );
+
+test( "complain input.scripts is an empty array", function( t ) {
+
+	t.plan( 1 );
+
+	var configuration = {
+		title: "title",
+		input: {
+			components: "/components/",
+			scripts: []
+		},
+		output: {
+			overview: "overview.html",
+			less: "components.less"
+		}
+	};
+
+	try {
+		validateConfigurationsService.validate( configuration );
+	} catch ( e ) {
+		t.equals( e.message, "Input scripts configuration cannot be empty." );
 	}
 
 } );

@@ -41,6 +41,10 @@
   * @name Buttons
   * @description This is an ordinary button.
   *
+  * @state btn-hover - The hover state
+  * @state btn-active - The active state
+  * @state btn-disabled - The disabled state
+  *
   * @type success - a success button
   * @type warning - used for cautions actions
   * @type danger - used for dangerous actions
@@ -230,13 +234,37 @@ so we keep a consistent color schema across all components.</p>
 <div class="color color-rose">@colorLava</div>
 <div class="color color-concrete">@colorConcrete</div>
 
-<a name='Buttons'></a><h2>Buttons</h2><p>This is an ordinary button.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th></tr></thead><tbody><tr><td>default</td><td><button type="button" class="btn">
+<a name='Buttons'></a><h2>Buttons</h2><p>This is an ordinary button.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>btn-hover</th><th>btn-active</th><th>btn-disabled</th></tr></thead><tbody><tr><td>default</td><td><button type="button" class="btn">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-hover">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-active">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-disabled">
 	Lorem ipsum button
 </button></td></tr><tr><td>success</td><td><button type="button" class="btn btn-success">
 	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-success btn-hover">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-success btn-active">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-success btn-disabled">
+	Lorem ipsum button
 </button></td></tr><tr><td>warning</td><td><button type="button" class="btn btn-warning">
 	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-warning btn-hover">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-warning btn-active">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-warning btn-disabled">
+	Lorem ipsum button
 </button></td></tr><tr><td>danger</td><td><button type="button" class="btn btn-danger">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-danger btn-hover">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-danger btn-active">
+	Lorem ipsum button
+</button></td><td><button type="button" class="btn btn-danger btn-disabled">
 	Lorem ipsum button
 </button></td></tr></tbody></table><p>Please use the appropriate button depending on the context. The default type may only be used during development.</p>
 <p><strong>HTML template</strong></p>
@@ -340,4 +368,5 @@ so we keep a consistent color schema across all components.</p>
     &lt;label class=&quot;textinput-label&quot;&gt;Lorem ipsum label&lt;/label&gt;
 &lt;/div&gt;
 </code></pre>
-</div><script src='https://cdn.jsdelivr.net/highlight.js/9.0.0/highlight.min.js'></script><script>hljs.initHighlightingOnLoad();</script></body></html>
+</div><!-- included external scripts --><script type="text/javascript">console.log( "Hurray, Coatroom can now run custom JavaScript!" );
+</script><script src='https://cdn.jsdelivr.net/highlight.js/9.0.0/highlight.min.js'></script><script>hljs.initHighlightingOnLoad();</script></body></html>

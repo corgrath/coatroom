@@ -14,7 +14,10 @@ coatroom( {
 		styleguides: {
 			"Introduction": "example/input/styleguides/introduction.md",
 			"Colors": "example/input/styleguides/colors.md"
-		}
+		},
+		scripts: [
+			"example/input/scripts/console-log.js"
+		]
 	},
 	output: {
 		overview: "example/output/components.generated.html",
