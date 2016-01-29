@@ -73,7 +73,7 @@ module.exports.generate = function( documentTitle, css, styleguides, components 
 	html += css;
 	html += "</style>";
 	html += "</head>";
-	html += "<body>";
+	html += "<body class=\"overview\">";
 
 	{
 
