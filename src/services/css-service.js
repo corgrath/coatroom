@@ -122,6 +122,10 @@ module.exports.validate = function( css, mainSelector, disallowedProperties, dis
 
             rule.declarations.forEach( function( declaration ) {
 
+                if ( declaration.type === "comment" ) {
+                    return;
+                }
+
                 // Validate so that CSS values are valid
                 validateThatUnitsAreValid( disallowedUnits, declaration.property, declaration.value );
 
