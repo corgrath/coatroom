@@ -90,12 +90,12 @@ should( "complain about disallowed CSS properties", function( t ) {
     try {
         cssService.validate( css, ".parent", [ "float" ], [] );
     } catch ( e ) {
-        t.equals( e.message, "The selector \".parent\" cannot have the CSS property \"float\"." );
+        t.equals( e.message, "The selector \".parent\" has a disallowed CSS property that found with the rule \"float\"." );
     }
 
 } );
 
-should( "complain about disallowed property value", function( t ) {
+should( "complain about disallowed property value using equals", function( t ) {
 
     t.plan( 1 );
 
@@ -104,8 +104,34 @@ should( "complain about disallowed property value", function( t ) {
     try {
         cssService.validate( css, ".parent", [ "position=static" ], [] );
     } catch ( e ) {
-        t.equals( e.message, "The selector \".parent\" cannot have the CSS property \"position=static\"." );
+        t.equals( e.message, "The selector \".parent\" has a disallowed CSS property that found with the rule \"position=static\"." );
     }
+
+} );
+
+should( "complain about disallowed property value using inverted equals", function( t ) {
+
+    t.plan( 1 );
+
+    var css = ".parent .child { text-align: center; } .parent { float: right; z-index: 1234; position: static; }";
+
+    try {
+        cssService.validate( css, ".parent", [ "z-index!=0" ], [] );
+    } catch ( e ) {
+        t.equals( e.message, "The selector \".parent\" has a disallowed CSS property that found with the rule \"z-index!=0\"." );
+    }
+
+} );
+
+should( "not complain about disallowed property value using inverted equals", function( t ) {
+
+    t.plan( 1 );
+
+    var css = ".parent .child { text-align: center; } .parent { float: right; z-index: 0; position: static; }";
+
+    t.doesNotThrow( function() {
+        cssService.validate( css, ".parent", [ "z-index!=0" ], [] );
+    } );
 
 } );
 

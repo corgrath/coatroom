@@ -32,6 +32,8 @@ function isMainSelector( selectorToTest, selector ) {
 
 function getDisallowedProperty( disallowedProperties, givenDeclaration ) {
 
+    var disallowedPropertyProperty;
+    var disallowedPropertyValue;
     var givenProperty = givenDeclaration.property;
     var givenValue = givenDeclaration.value;
 
@@ -39,10 +41,19 @@ function getDisallowedProperty( disallowedProperties, givenDeclaration ) {
 
         var disallowedProperty = disallowedProperties[ i ];
 
-        if ( stringUtil.contains( disallowedProperty, "=" ) ) {
+        if ( stringUtil.contains( disallowedProperty, "!=" ) ) {
 
-            var disallowedPropertyProperty = disallowedProperty.split( "=" )[ 0 ];
-            var disallowedPropertyValue = disallowedProperty.split( "=" )[ 1 ];
+            disallowedPropertyProperty = disallowedProperty.split( "!=" )[ 0 ];
+            disallowedPropertyValue = disallowedProperty.split( "!=" )[ 1 ];
+
+            if ( disallowedPropertyProperty === givenProperty && disallowedPropertyValue !== givenValue ) {
+                return disallowedProperty;
+            }
+
+        } else if ( stringUtil.contains( disallowedProperty, "=" ) ) {
+
+            disallowedPropertyProperty = disallowedProperty.split( "=" )[ 0 ];
+            disallowedPropertyValue = disallowedProperty.split( "=" )[ 1 ];
 
             if ( disallowedPropertyProperty === givenProperty && disallowedPropertyValue === givenValue ) {
                 return disallowedProperty;
@@ -124,7 +135,7 @@ module.exports.validate = function( css, mainSelector, disallowedProperties, dis
 
                         // If its a component's main selector, report it
                         if ( isMainSelector( selector, mainSelector ) ) {
-                            throw new Error( "The selector \"" + rule.selectors + "\" cannot have the CSS property \"" + disallowedProperty + "\"." );
+                            throw new Error( "The selector \"" + rule.selectors + "\" has a disallowed CSS property that found with the rule \"" + disallowedProperty + "\"." );
                         }
 
                     } );

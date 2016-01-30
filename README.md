@@ -54,22 +54,22 @@ The configuration object
 ------------------------------------------------------------------------------------------------------------------------
 In order to invoke Coatroom, a configuration object is required. An example of the configuration object can be found [here](https://github.com/corgrath/coatroom/blob/master/example/example.js).
 
-| Property name														| Explanation																																									|
-|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title {string}`													| The title of the overview page.																																				|
-| `input {object}`													| 																																												|
-| `input.components {string}`										| Path to the folder where the components are located.																															|
-| `input.less {array of strings} [optional]`						| An array of .less files. These files will automatically be prepended to the generated .less file. If your components or style guides use any shared LESS use this option.		|
-| `input.lessModifyVars {object} [optional]`						| An object with modified LESS variables supported by the [LESS tool](technology-less-modifyvars).                                   		                           			|
-| `input.styleguides {object} [optional]`							| An object to add external style guide documents. Keys is the document title, value is the path to the file.																	|
-| `input.scripts {array of strings} [optional]`						| An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                	|
-| `output {object}`													| 																																												|
-| `output.overview {string}`										| Path to a file which will be the generated overview page.																														|
-| `output.less {string}`											| Path to a file which will be the generated concatenated LESS file.																											|
-| `output.css {string} [optional]`									| Path to a file which will be the generated compiled CSS file.																													|
-| `validation {string} [optional]`									|																																												|
-| `validation.disallowedCSSRules {array of strings} [optional]`		| An array of CSS properties that should be disallowed within components. It is also possible to write a property with a specific value, for example `property=value`.			|
-| `validation.disallowedCSSUnits {array of strings} [optional]`		| An array of units that should be disallowed within components.																												|
+| Property name														| Explanation																																							                                		|
+|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title {string}`													| The title of the overview page.																																		                                		|
+| `input {object}`													| 																																											                                	|
+| `input.components {string}`										| Path to the folder where the components are located.																														                                	|
+| `input.less {array of strings} [optional]`						| An array of .less files. These files will automatically be prepended to the generated .less file. If your components or style guides use any shared LESS use this option.	                                	|
+| `input.lessModifyVars {object} [optional]`						| An object with modified LESS variables supported by the [LESS tool](technology-less-modifyvars).                                   		                           	                                		|
+| `input.styleguides {object} [optional]`							| An object to add external style guide documents. Keys is the document title, value is the path to the file.															                                   		|
+| `input.scripts {array of strings} [optional]`						| An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                                                  	|
+| `output {object}`													| 																																								                                				|
+| `output.overview {string}`										| Path to a file which will be the generated overview page.																										                                				|
+| `output.less {string}`											| Path to a file which will be the generated concatenated LESS file.																									                                		|
+| `output.css {string} [optional]`									| Path to a file which will be the generated compiled CSS file.																											                                		|
+| `validation {string} [optional]`									|																																											                                	|
+| `validation.disallowedCSSRules {array of strings} [optional]`		| An array of CSS properties that should be disallowed within components. It is also possible to disallow property values by writing `position=absolute`, while allowing all other values with `z-index!=0`.	|
+| `validation.disallowedCSSUnits {array of strings} [optional]`		| An array of units that should be disallowed within components.			                                																									|
 
 
 

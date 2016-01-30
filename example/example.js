@@ -40,7 +40,8 @@ coatroom( {
             "position=static",
             "position=fixed",
             "float",
-            "margin"
+            "margin",
+            "z-index!=0"
         ],
         disallowedCSSUnits: [
             "cm",
