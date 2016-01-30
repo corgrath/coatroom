@@ -16,13 +16,13 @@
  */
 
 module.exports.startsWith = function startsWith( string, prefix ) {
-	return string.slice( 0, prefix.length ) == prefix;
+    return string.slice( 0, prefix.length ) == prefix;
 };
 
 module.exports.endsWith = function endsWith( str, suffix ) {
-	return str.indexOf( suffix, str.length - suffix.length ) !== -1;
+    return str.indexOf( suffix, str.length - suffix.length ) !== -1;
 };
 
 module.exports.contains = function contains( str, needle ) {
-	return str.indexOf( needle ) !== -1;
+    return str.indexOf( needle ) !== -1;
 };

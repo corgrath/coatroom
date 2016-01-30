@@ -19,6 +19,6 @@ var mustache = require( "mustache" );
 
 module.exports.build = function( template, data ) {
 
-	return mustache.render( template, data );
+    return mustache.render( template, data );
 
 };

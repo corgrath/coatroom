@@ -1,41 +1,50 @@
+@colorClouds: "";
+@colorTurquoise: "";
+@colorEmerald: "";
+@colorSky: "";
+@colorAmethyst: "";
+@colorApshalt: "";
+@colorOrange: "";
+@colorLava: "";
+@colorConcrete: "";
 .color {
-	width: 150px;
-	display: inline-block;
-	text-align: center;
-	padding: 20px 0;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	color: white;
-	border: 1px solid transparent;
-	&-clouds {
-		color: black;
-		border: 1px solid silver;
-		background: @colorClouds;
-	}
-	&-turquoise {
-		background: @colorTurquoise;
-	}
-	&-emerald {
-		background: @colorEmerald;
-	}
-	&-sky {
-		background: @colorSky;
-	}
-	&-amethyst {
-		background: @colorAmethyst;
-	}
-	&-asphalt {
-		background: @colorApshalt;
-	}
-	&-orange {
-		background: @colorOrange;
-	}
-	&-rose {
-		background: @colorLava;
-	}
-	&-concrete {
-		background: @colorConcrete;
-	}
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: 1px solid transparent;
+    &-clouds {
+        color: black;
+        border: 1px solid silver;
+        background: @colorClouds;
+    }
+    &-turquoise {
+        background: @colorTurquoise;
+    }
+    &-emerald {
+        background: @colorEmerald;
+    }
+    &-sky {
+        background: @colorSky;
+    }
+    &-amethyst {
+        background: @colorAmethyst;
+    }
+    &-asphalt {
+        background: @colorApshalt;
+    }
+    &-orange {
+        background: @colorOrange;
+    }
+    &-rose {
+        background: @colorLava;
+    }
+    &-concrete {
+        background: @colorConcrete;
+    }
 }
 
 /**
@@ -52,39 +61,39 @@
   */
 
 .btn-states(@textColor, @bgColor) {
-	color: @textColor;
-	background: @bgColor;
-	&.btn-hover,
-	&:hover {
-		background: darken(@bgColor, 10);
-	}
-	&.btn-active,
-	&:active {
-		background: darken(@bgColor, 20);
-	}
-	&.btn-disabled,
-	&:disabled {
-		background: greyscale(@bgColor);
-		cursor: default;
-	}
+    color: @textColor;
+    background: @bgColor;
+    &.btn-hover,
+    &:hover {
+        background: darken(@bgColor, 10);
+    }
+    &.btn-active,
+    &:active {
+        background: darken(@bgColor, 20);
+    }
+    &.btn-disabled,
+    &:disabled {
+        background: greyscale(@bgColor);
+        cursor: default;
+    }
 }
 
 .btn {
-	padding: 10px 20px;
-	text-align: center;
-	cursor: pointer;
-	border: none;
-	border-radius: 5px;
-	.btn-states(@colorClouds, @colorSky);
-	&-success {
-		.btn-states(@colorClouds, @colorEmerald);
-	}
-	&-warning {
-		.btn-states(@colorClouds, @colorOrange);
-	}
-	&-danger {
-		.btn-states(@colorClouds, @colorLava);
-	}
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    .btn-states(@colorClouds, @colorSky);
+    &-success {
+        .btn-states(@colorClouds, @colorEmerald);
+    }
+    &-warning {
+        .btn-states(@colorClouds, @colorOrange);
+    }
+    &-danger {
+        .btn-states(@colorClouds, @colorLava);
+    }
 }
 
 /**
@@ -95,27 +104,27 @@
   */
 
 .table {
-	border-collapse: collapse;
-	width: 100%;
-	thead tr th {
-		font-weight: bold;
-		text-align: left;
-	}
-	tbody tr:nth-child(2n+1) {
-		background-color: lighten(@colorConcrete, 30);
-	}
-	thead tr th,
-	tbody tr td {
-		padding: 5px;
-		border: 1px solid @colorConcrete;
-		background: transparent;
-	}
-	&-borderless {
-		thead tr th,
-		tbody tr td {
-			border: 1px solid transparent;
-		}
-	}
+    border-collapse: collapse;
+    width: 100%;
+    thead tr th {
+        font-weight: bold;
+        text-align: left;
+    }
+    tbody tr:nth-child(2n+1) {
+        background-color: lighten(@colorConcrete, 30);
+    }
+    thead tr th,
+    tbody tr td {
+        padding: 5px;
+        border: 1px solid @colorConcrete;
+        background: transparent;
+    }
+    &-borderless {
+        thead tr th,
+        tbody tr td {
+            border: 1px solid transparent;
+        }
+    }
 }
 
 /**
@@ -129,63 +138,63 @@
   */
 
 .textinput {
-	position: relative;
-	&-input {
-		margin-top: 25px;
-		width: 100%;
-		border: 1px solid @colorConcrete;
-		padding: 5px;
-		box-sizing: border-box;
-		transition: all 0.5s;
-		.textinput-disabled &,
-		&:disabled,
-		.textinput-focus &,
-		&:focus {
-			& + label {
-				opacity: 1;
-			}
-		}
-		.textinput-focus &,
-		&:focus {
-			border: 1px solid @colorSky;
-			color: @colorConcrete !important;
-			background: none !important;
-		}
-		.textinput-hover &,
-		&:hover {
-			color: @colorClouds;
-			background: @colorSky;
-		}
-		.textinput-active &,
-		&:active {
-			border: 1px solid @colorSky;
-		}
-		.textinput-invalid &,
-		&:invalid {
-			border: 1px solid @colorLava;
-			background: lighten(@colorLava, 20);
-			color: @colorClouds;
-			& + label {
-				color: @colorLava;
-			}
-		}
-		.textinput-disabled &,
-		&:disabled {
-			background: greyscale(@colorConcrete) !important;
-			color: greyscale(@colorClouds) !important;
-			cursor: default;
-			& + label {
-				opacity: 1;
-			}
-		}
-	}
-	&-label {
-		opacity: 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		font-weight: bold;
-		transition: opacity 0.5s;
-	}
+    position: relative;
+    &-input {
+        margin-top: 25px;
+        width: 100%;
+        border: 1px solid @colorConcrete;
+        padding: 5px;
+        box-sizing: border-box;
+        transition: all 0.5s;
+        .textinput-disabled &,
+        &:disabled,
+        .textinput-focus &,
+        &:focus {
+            & + label {
+                opacity: 1;
+            }
+        }
+        .textinput-focus &,
+        &:focus {
+            border: 1px solid @colorSky;
+            color: @colorConcrete !important;
+            background: none !important;
+        }
+        .textinput-hover &,
+        &:hover {
+            color: @colorClouds;
+            background: @colorSky;
+        }
+        .textinput-active &,
+        &:active {
+            border: 1px solid @colorSky;
+        }
+        .textinput-invalid &,
+        &:invalid {
+            border: 1px solid @colorLava;
+            background: lighten(@colorLava, 20);
+            color: @colorClouds;
+            & + label {
+                color: @colorLava;
+            }
+        }
+        .textinput-disabled &,
+        &:disabled {
+            background: greyscale(@colorConcrete) !important;
+            color: greyscale(@colorClouds) !important;
+            cursor: default;
+            & + label {
+                opacity: 1;
+            }
+        }
+    }
+    &-label {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: bold;
+        transition: opacity 0.5s;
+    }
 }
 

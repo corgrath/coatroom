@@ -20,15 +20,15 @@ var libLESS = Promise.promisifyAll( require( "less" ) );
 
 module.exports.build = function( lessSource, outputFilename, lessModifyVars ) {
 
-	var options = {
-		filename: outputFilename,
-		modifyVars: lessModifyVars
-	};
+    var options = {
+        filename: outputFilename,
+        modifyVars: lessModifyVars
+    };
 
-	return libLESS.render( lessSource, options ).then( function( output ) {
+    return libLESS.render( lessSource, options ).then( function( output ) {
 
-		return output.css;
+        return output.css;
 
-	} );
+    } );
 
 };

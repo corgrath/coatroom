@@ -6,25 +6,25 @@
   */
 
 .table {
-	border-collapse: collapse;
-	width: 100%;
-	thead tr th {
-		font-weight: bold;
-		text-align: left;
-	}
-	tbody tr:nth-child(2n+1) {
-		background-color: lighten(@colorConcrete, 30);
-	}
-	thead tr th,
-	tbody tr td {
-		padding: 5px;
-		border: 1px solid @colorConcrete;
-		background: transparent;
-	}
-	&-borderless {
-		thead tr th,
-		tbody tr td {
-			border: 1px solid transparent;
-		}
-	}
+    border-collapse: collapse;
+    width: 100%;
+    thead tr th {
+        font-weight: bold;
+        text-align: left;
+    }
+    tbody tr:nth-child(2n+1) {
+        background-color: lighten(@colorConcrete, 30);
+    }
+    thead tr th,
+    tbody tr td {
+        padding: 5px;
+        border: 1px solid @colorConcrete;
+        background: transparent;
+    }
+    &-borderless {
+        thead tr th,
+        tbody tr td {
+            border: 1px solid transparent;
+        }
+    }
 }

@@ -20,22 +20,22 @@ var fileService = require( "../services/file-service.js" );
 
 module.exports.getScriptsFromConfiguration = function( configuration ) {
 
-	logUtil.log( "InputScriptsService", "Will now process external JavaScript scripts." );
+    logUtil.log( "InputScriptsService", "Will now process external JavaScript scripts." );
 
-	var allJavaScript = "";
+    var allJavaScript = "";
 
-	if ( configuration.input.scripts ) {
+    if ( configuration.input.scripts ) {
 
-		configuration.input.scripts.forEach( function( script ) {
+        configuration.input.scripts.forEach( function( script ) {
 
-			var js = fileService.readFile( script );
+            var js = fileService.readFile( script );
 
-			allJavaScript += js;
+            allJavaScript += js;
 
-		} );
+        } );
 
-	}
+    }
 
-	return allJavaScript;
+    return allJavaScript;
 
 };

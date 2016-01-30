@@ -17,28 +17,28 @@
 
 function addZero( i ) {
 
-	"use strict";
+    "use strict";
 
-	return i < 10 ? "0" + i : i;
+    return i < 10 ? "0" + i : i;
 
 }
 
 module.exports.log = function( reporter, message ) {
 
-	"use strict";
+    "use strict";
 
-	if ( !reporter ) {
-		throw new Error( "Reporter is missing." );
-	}
+    if ( !reporter ) {
+        throw new Error( "Reporter is missing." );
+    }
 
-	if ( !message ) {
-		throw new Error( "Message is missing." );
-	}
+    if ( !message ) {
+        throw new Error( "Message is missing." );
+    }
 
-	var now = new Date();
-	var timestamp = addZero( now.getUTCHours() ) + ":" + addZero( now.getUTCMinutes() );
+    var now = new Date();
+    var timestamp = addZero( now.getUTCHours() ) + ":" + addZero( now.getUTCMinutes() );
 
-	/* global console */
-	console.log( "[" + timestamp + "] [" + reporter + "] " + message );
+    /* global console */
+    console.log( "[" + timestamp + "] [" + reporter + "] " + message );
 
 };

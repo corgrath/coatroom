@@ -21,31 +21,31 @@ var dssService = require( "./dss-service.js" );
 
 test( "works correctly", function( t ) {
 
-	t.plan( 5 );
+    t.plan( 5 );
 
-	t.deepEqual( dssService._parseAnnotation( "confirm" ), {
-		name: "confirm",
-		description: ""
-	} );
+    t.deepEqual( dssService._parseAnnotation( "confirm" ), {
+        name: "confirm",
+        description: ""
+    } );
 
-	t.deepEqual( dssService._parseAnnotation( "confirm a confirm button" ), {
-		name: "confirm",
-		description: "a confirm button"
-	} );
+    t.deepEqual( dssService._parseAnnotation( "confirm a confirm button" ), {
+        name: "confirm",
+        description: "a confirm button"
+    } );
 
-	t.deepEqual( dssService._parseAnnotation( "confirm - a confirm button" ), {
-		name: "confirm",
-		description: "a confirm button"
-	} );
+    t.deepEqual( dssService._parseAnnotation( "confirm - a confirm button" ), {
+        name: "confirm",
+        description: "a confirm button"
+    } );
 
-	t.deepEqual( dssService._parseAnnotation( "confirm -- a confirm button" ), {
-		name: "confirm",
-		description: "-- a confirm button"
-	} );
+    t.deepEqual( dssService._parseAnnotation( "confirm -- a confirm button" ), {
+        name: "confirm",
+        description: "-- a confirm button"
+    } );
 
-	t.deepEqual( dssService._parseAnnotation( "confirm-- a confirm button" ), {
-		name: "confirm--",
-		description: "a confirm button"
-	} );
+    t.deepEqual( dssService._parseAnnotation( "confirm-- a confirm button" ), {
+        name: "confirm--",
+        description: "a confirm button"
+    } );
 
 } );

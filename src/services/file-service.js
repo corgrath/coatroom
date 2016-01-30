@@ -27,155 +27,155 @@ var logUtil = require( "../utils/log-util.js" );
 
 module.exports.createFolderStructure = function( path ) {
 
-	if ( module.exports.directoryExists( path ) ) {
+    if ( module.exports.directoryExists( path ) ) {
 
-		logUtil.log( "FileService", "The path structure \"" + path + "\" is already created." );
+        logUtil.log( "FileService", "The path structure \"" + path + "\" is already created." );
 
-	} else {
+    } else {
 
-		logUtil.log( "FileService", "Creating path structure \"" + path + "\"." );
+        logUtil.log( "FileService", "Creating path structure \"" + path + "\"." );
 
-		mkdirp.sync( path );
+        mkdirp.sync( path );
 
-	}
+    }
 
 };
 
 module.exports.isFile = function( file ) {
 
-	return fs.existsSync( file ) && fs.lstatSync( file ).isFile();
+    return fs.existsSync( file ) && fs.lstatSync( file ).isFile();
 
 };
 
 module.exports.directoryExists = function log( directory ) {
 
-	return fs.existsSync( directory ) && fs.lstatSync( directory ).isDirectory();
+    return fs.existsSync( directory ) && fs.lstatSync( directory ).isDirectory();
 
 };
 
 module.exports.readFile = function( file ) {
 
-	if ( !assert.isString( file ) ) {
-		throw new Error( "File is not a string." );
-	}
+    if ( !assert.isString( file ) ) {
+        throw new Error( "File is not a string." );
+    }
 
-	if ( !module.exports.isFile( file ) ) {
-		throw new Error( "\"" + file + "\" is not a file." );
-	}
+    if ( !module.exports.isFile( file ) ) {
+        throw new Error( "\"" + file + "\" is not a file." );
+    }
 
-	if ( fs.existsSync( file ) ) {
+    if ( fs.existsSync( file ) ) {
 
-		var data = fs.readFileSync( file, "UTF-8" );
+        var data = fs.readFileSync( file, "UTF-8" );
 
-		logUtil.log( "FileService", "Read \"" + Buffer.byteLength( data, "UTF-8" ) + "\" bytes from the file \"" + file + "\"." );
+        logUtil.log( "FileService", "Read \"" + Buffer.byteLength( data, "UTF-8" ) + "\" bytes from the file \"" + file + "\"." );
 
-		return data;
+        return data;
 
-	} else {
+    } else {
 
-		throw new Error( "Could not find the file \"" + file + "\"." );
+        throw new Error( "Could not find the file \"" + file + "\"." );
 
-	}
+    }
 
 };
 
 module.exports.join = function log() {
 
-	return nodePath.join.apply( null, arguments );
+    return nodePath.join.apply( null, arguments );
 
 };
 
 module.exports.getAllItemsInDirectory = function( directory ) {
 
-	if ( !module.exports.directoryExists( directory ) ) {
-		throw new Error( "The directory \"" + directory + "\" does not exist." );
-	}
+    if ( !module.exports.directoryExists( directory ) ) {
+        throw new Error( "The directory \"" + directory + "\" does not exist." );
+    }
 
-	var items = fs.readdirSync( directory );
+    var items = fs.readdirSync( directory );
 
-	return items;
+    return items;
 
 };
 
 module.exports.getAllFilesInDirectory = function( directory, extension ) {
 
-	var files = [];
+    var files = [];
 
-	var items = module.exports.getAllItemsInDirectory( directory );
+    var items = module.exports.getAllItemsInDirectory( directory );
 
-	for ( var i in items ) {
+    for ( var i in items ) {
 
-		var item = items[ i ];
+        var item = items[ i ];
 
-		if ( module.exports.isFile( directory + nodePath.sep + item ) ) {
+        if ( module.exports.isFile( directory + nodePath.sep + item ) ) {
 
-			if ( !extension || stringUtil.endsWith( item, extension ) ) {
-				files.push( item );
-			}
+            if ( !extension || stringUtil.endsWith( item, extension ) ) {
+                files.push( item );
+            }
 
-		}
+        }
 
-	}
+    }
 
-	return files;
+    return files;
 
 };
 
 module.exports.isDirectory = function( directory ) {
 
-	return fs.existsSync( directory ) && fs.lstatSync( directory ).isDirectory();
+    return fs.existsSync( directory ) && fs.lstatSync( directory ).isDirectory();
 
 };
 
 module.exports.getAllDirectories = function( directory ) {
 
-	var directories = [];
+    var directories = [];
 
-	var items = module.exports.getAllItemsInDirectory( directory );
+    var items = module.exports.getAllItemsInDirectory( directory );
 
-	for ( var i in items ) {
+    for ( var i in items ) {
 
-		var item = items[ i ];
+        var item = items[ i ];
 
-		if ( module.exports.isDirectory( nodePath.join( directory, item ) ) ) {
-			directories.push( item );
-		}
+        if ( module.exports.isDirectory( nodePath.join( directory, item ) ) ) {
+            directories.push( item );
+        }
 
-	}
+    }
 
-	return directories;
+    return directories;
 
 };
 
 module.exports.writeFile = function( file, contents ) {
 
-	assert.isString( contents, "contents" );
+    assert.isString( contents, "contents" );
 
-	var path = nodePath.dirname( file );
-	module.exports.createFolderStructure( path );
+    var path = nodePath.dirname( file );
+    module.exports.createFolderStructure( path );
 
-	fs.writeFileSync( file, contents );
+    fs.writeFileSync( file, contents );
 
-	logUtil.log( "FileService", "Wrote \"" + Buffer.byteLength( contents, "UTF-8" ) + "\" bytes to the file \"" + file + "\"." );
+    logUtil.log( "FileService", "Wrote \"" + Buffer.byteLength( contents, "UTF-8" ) + "\" bytes to the file \"" + file + "\"." );
 
 };
 
 module.exports.concatenate = function( files ) {
 
-	var concatenation = "";
+    var concatenation = "";
 
-	files.forEach( function( file ) {
+    files.forEach( function( file ) {
 
-		if ( !module.exports.isFile( file ) ) {
-			throw new Error( "\"" + file + "\" is not a file." );
-		}
+        if ( !module.exports.isFile( file ) ) {
+            throw new Error( "\"" + file + "\" is not a file." );
+        }
 
-		var contents = module.exports.readFile( file );
+        var contents = module.exports.readFile( file );
 
-		concatenation += contents + EOL;
+        concatenation += contents + EOL;
 
-	} );
+    } );
 
-	return concatenation;
+    return concatenation;
 
 };

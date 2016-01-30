@@ -20,7 +20,7 @@
  */
 
 function isOfType( object, expectedType ) {
-	return ( typeof object === expectedType );
+    return ( typeof object === expectedType );
 }
 
 /*
@@ -28,18 +28,18 @@ function isOfType( object, expectedType ) {
  */
 
 module.exports.isString = function( object ) {
-	return isOfType( object, "string" );
+    return isOfType( object, "string" );
 };
 
 
 module.exports.isObject = function( object ) {
-	return isOfType( object, "object" );
+    return isOfType( object, "object" );
 };
 
 module.exports.isArray = function( object ) {
 
-	var type = Object.prototype.toString.call( object );
+    var type = Object.prototype.toString.call( object );
 
-	return ( type === "[object Array]" );
+    return ( type === "[object Array]" );
 
 };

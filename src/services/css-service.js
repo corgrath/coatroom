@@ -22,119 +22,119 @@ var stringUtil = require( "../utils/string-util.js" );
 
 function isMainSelector( selectorToTest, selector ) {
 
-	if ( selectorToTest === selector ) {
-		return true;
-	} else {
-		return false;
-	}
+    if ( selectorToTest === selector ) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
 
 function getDisallowedProperty( disallowedProperties, givenDeclaration ) {
 
-	var givenProperty = givenDeclaration.property;
-	var givenValue = givenDeclaration.value;
+    var givenProperty = givenDeclaration.property;
+    var givenValue = givenDeclaration.value;
 
-	for ( var i = 0; i < disallowedProperties.length; i++ ) {
+    for ( var i = 0; i < disallowedProperties.length; i++ ) {
 
-		var disallowedProperty = disallowedProperties[ i ];
+        var disallowedProperty = disallowedProperties[ i ];
 
-		if ( stringUtil.contains( disallowedProperty, "=" ) ) {
+        if ( stringUtil.contains( disallowedProperty, "=" ) ) {
 
-			var disallowedPropertyProperty = disallowedProperty.split( "=" )[ 0 ];
-			var disallowedPropertyValue = disallowedProperty.split( "=" )[ 1 ];
+            var disallowedPropertyProperty = disallowedProperty.split( "=" )[ 0 ];
+            var disallowedPropertyValue = disallowedProperty.split( "=" )[ 1 ];
 
-			if ( disallowedPropertyProperty === givenProperty && disallowedPropertyValue === givenValue ) {
-				return disallowedProperty;
-			}
+            if ( disallowedPropertyProperty === givenProperty && disallowedPropertyValue === givenValue ) {
+                return disallowedProperty;
+            }
 
-		} else {
+        } else {
 
-			if ( disallowedProperty === givenProperty ) {
-				return disallowedProperty;
-			}
+            if ( disallowedProperty === givenProperty ) {
+                return disallowedProperty;
+            }
 
-		}
+        }
 
-	}
+    }
 
-	return null;
+    return null;
 
 }
 
 function validateThatUnitsAreValid( disallowedUnits, property, value ) {
 
-	disallowedUnits.forEach( function( disallowedUnit ) {
+    disallowedUnits.forEach( function( disallowedUnit ) {
 
-		var regexp = new RegExp( "\\d+" + disallowedUnit, "i" );
-		var match = value.match( regexp );
+        var regexp = new RegExp( "\\d+" + disallowedUnit, "i" );
+        var match = value.match( regexp );
 
-		if ( match ) {
-			throw new Error( "The property \"" + property + "\" may not have the value \"" + value + "\" since containing the unit \"" + disallowedUnit + "\"." );
-		}
+        if ( match ) {
+            throw new Error( "The property \"" + property + "\" may not have the value \"" + value + "\" since containing the unit \"" + disallowedUnit + "\"." );
+        }
 
-	} );
+    } );
 
 }
 
 module.exports.validate = function( css, mainSelector, disallowedProperties, disallowedUnits ) {
 
-	if ( !css ) {
-		throw new Error( "Missing CSS source code." );
-	}
+    if ( !css ) {
+        throw new Error( "Missing CSS source code." );
+    }
 
-	if ( !mainSelector ) {
-		throw new Error( "Main selector is missing." );
-	}
+    if ( !mainSelector ) {
+        throw new Error( "Main selector is missing." );
+    }
 
-	if ( !disallowedProperties ) {
-		throw new Error( "Disallowed properties is missing." );
-	}
+    if ( !disallowedProperties ) {
+        throw new Error( "Disallowed properties is missing." );
+    }
 
-	if ( !assert.isArray( disallowedProperties ) ) {
-		throw new Error( "Disallowed properties is not an array." );
-	}
+    if ( !assert.isArray( disallowedProperties ) ) {
+        throw new Error( "Disallowed properties is not an array." );
+    }
 
-	if ( !disallowedUnits ) {
-		throw new Error( "Disallowed CSS units is missing." );
-	}
+    if ( !disallowedUnits ) {
+        throw new Error( "Disallowed CSS units is missing." );
+    }
 
-	if ( !assert.isArray( disallowedUnits ) ) {
-		throw new Error( "Disallowed CSS units is not an array." );
-	}
+    if ( !assert.isArray( disallowedUnits ) ) {
+        throw new Error( "Disallowed CSS units is not an array." );
+    }
 
-	var cssTreeStructure = cssLib.parse( css );
+    var cssTreeStructure = cssLib.parse( css );
 
-	cssTreeStructure.stylesheet.rules.forEach( function( rule ) {
+    cssTreeStructure.stylesheet.rules.forEach( function( rule ) {
 
-		if ( rule.type === "rule" ) {
+        if ( rule.type === "rule" ) {
 
-			rule.declarations.forEach( function( declaration ) {
+            rule.declarations.forEach( function( declaration ) {
 
-				// Validate so that CSS values are valid
-				validateThatUnitsAreValid( disallowedUnits, declaration.property, declaration.value );
+                // Validate so that CSS values are valid
+                validateThatUnitsAreValid( disallowedUnits, declaration.property, declaration.value );
 
-				// check if there are any disallowed properties in the declaration
-				var disallowedProperty = getDisallowedProperty( disallowedProperties, declaration );
+                // check if there are any disallowed properties in the declaration
+                var disallowedProperty = getDisallowedProperty( disallowedProperties, declaration );
 
-				if ( disallowedProperty ) {
+                if ( disallowedProperty ) {
 
-					// Go through each selector
-					rule.selectors.forEach( function( selector ) {
+                    // Go through each selector
+                    rule.selectors.forEach( function( selector ) {
 
-						// If its a component's main selector, report it
-						if ( isMainSelector( selector, mainSelector ) ) {
-							throw new Error( "The selector \"" + rule.selectors + "\" cannot have the CSS property \"" + disallowedProperty + "\"." );
-						}
+                        // If its a component's main selector, report it
+                        if ( isMainSelector( selector, mainSelector ) ) {
+                            throw new Error( "The selector \"" + rule.selectors + "\" cannot have the CSS property \"" + disallowedProperty + "\"." );
+                        }
 
-					} );
+                    } );
 
-				}
+                }
 
-			} );
+            } );
 
-		}
+        }
 
-	} );
+    } );
 
 };

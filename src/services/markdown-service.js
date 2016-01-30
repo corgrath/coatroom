@@ -19,6 +19,6 @@ var marked = require( "marked" );
 
 module.exports.build = function( markdownSource ) {
 
-	return marked( markdownSource );
+    return marked( markdownSource );
 
 };

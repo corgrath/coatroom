@@ -22,96 +22,96 @@ var stringUtil = require( "../utils/string-util.js" );
 
 dss.parser( "type", function( i, line /*, block*/ ) {
 
-	return module.exports._parseAnnotation( line );
+    return module.exports._parseAnnotation( line );
 
 } );
 
 module.exports._parseAnnotation = function( line ) {
 
-	var name,
-		description,
-		indexOfFirstSpace = line.indexOf( " " );
+    var name,
+        description,
+        indexOfFirstSpace = line.indexOf( " " );
 
-	if ( indexOfFirstSpace === -1 ) {
-		name = line;
-		description = "";
-	} else {
-		name = line.substring( 0, indexOfFirstSpace );
-		description = line.substring( indexOfFirstSpace );
+    if ( indexOfFirstSpace === -1 ) {
+        name = line;
+        description = "";
+    } else {
+        name = line.substring( 0, indexOfFirstSpace );
+        description = line.substring( indexOfFirstSpace );
 
 
-		name = name.trim();
-		description = description.trim();
+        name = name.trim();
+        description = description.trim();
 
-		if ( stringUtil.startsWith( description, "- " ) ) {
-			description = description.substring( 2 ).trim();
-		}
+        if ( stringUtil.startsWith( description, "- " ) ) {
+            description = description.substring( 2 ).trim();
+        }
 
-	}
+    }
 
-	return {
-		name: name,
-		description: description
-	};
+    return {
+        name: name,
+        description: description
+    };
 
 };
 
 
 module.exports.parse = function( componentName, lessSource ) {
 
-	return new Promise( function( resolve ) {
+    return new Promise( function( resolve ) {
 
-		var options = {
+        var options = {
 
-		};
+        };
 
-		dss.parse( lessSource, options, function( dssData ) {
+        dss.parse( lessSource, options, function( dssData ) {
 
-			if ( !dssData ) {
-				throw new Error( "DSS data is undefined" );
-			}
+            if ( !dssData ) {
+                throw new Error( "DSS data is undefined" );
+            }
 
-			if ( !dssData.blocks.length ) {
-				throw new Error( "Could not find any DSS blocks for the component \"" + componentName + "\"." );
-			}
+            if ( !dssData.blocks.length ) {
+                throw new Error( "Could not find any DSS blocks for the component \"" + componentName + "\"." );
+            }
 
-			/*
-			 * Special fixes
-			 */
+            /*
+             * Special fixes
+             */
 
-			// If no states exist, create ean mpty array
-			if ( !dssData.blocks[ 0 ].state ) {
-				dssData.blocks[ 0 ].state = [];
-			}
+            // If no states exist, create ean mpty array
+            if ( !dssData.blocks[ 0 ].state ) {
+                dssData.blocks[ 0 ].state = [];
+            }
 
-			// Convert any single items into an array
-			if ( !( dssData.blocks[ 0 ].state instanceof Array ) ) {
-				dssData.blocks[ 0 ].state = [ dssData.blocks[ 0 ].state ];
-			}
+            // Convert any single items into an array
+            if ( !( dssData.blocks[ 0 ].state instanceof Array ) ) {
+                dssData.blocks[ 0 ].state = [ dssData.blocks[ 0 ].state ];
+            }
 
-			// If no type exist, create an empty array
-			if ( !dssData.blocks[ 0 ].type ) {
-				dssData.blocks[ 0 ].type = [];
-			}
+            // If no type exist, create an empty array
+            if ( !dssData.blocks[ 0 ].type ) {
+                dssData.blocks[ 0 ].type = [];
+            }
 
-			// Convert any single items into an array
-			if ( !( dssData.blocks[ 0 ].type instanceof Array ) ) {
-				dssData.blocks[ 0 ].type = [ dssData.blocks[ 0 ].type ];
-			}
+            // Convert any single items into an array
+            if ( !( dssData.blocks[ 0 ].type instanceof Array ) ) {
+                dssData.blocks[ 0 ].type = [ dssData.blocks[ 0 ].type ];
+            }
 
-			//console.log("anders", JSON.stringify(dssData.blocks[0], null, "\t"));
+            //console.log("anders", JSON.stringify(dssData.blocks[0], null, "\t"));
 
-			var data = {
-				name: dssData.blocks[ 0 ].name,
-				description: dssData.blocks[ 0 ].description,
-				states: dssData.blocks[ 0 ].state,
-				types: dssData.blocks[ 0 ].type
-			};
+            var data = {
+                name: dssData.blocks[ 0 ].name,
+                description: dssData.blocks[ 0 ].description,
+                states: dssData.blocks[ 0 ].state,
+                types: dssData.blocks[ 0 ].type
+            };
 
-			resolve( data );
+            resolve( data );
 
-		} );
+        } );
 
-	} );
+    } );
 
 };

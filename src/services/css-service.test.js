@@ -21,104 +21,104 @@ var cssService = require( "./css-service.js" );
 
 should( "work", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	t.doesNotThrow( function() {
+    t.doesNotThrow( function() {
 
-		var css = ".parent { text-align: center; } .parent2 .child { float: right; }";
+        var css = ".parent { text-align: center; } .parent2 .child { float: right; }";
 
-		cssService.validate( css, ".parent", [ "float" ], [] );
+        cssService.validate( css, ".parent", [ "float" ], [] );
 
-	} );
+    } );
 
 } );
 
 should( "complain no css is provided", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	try {
-		cssService.validate();
-	} catch ( e ) {
-		t.equals( e.message, "Missing CSS source code." );
-	}
+    try {
+        cssService.validate();
+    } catch ( e ) {
+        t.equals( e.message, "Missing CSS source code." );
+    }
 
 } );
 
 should( "complain no base selector was provided", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	try {
-		cssService.validate( "css" );
-	} catch ( e ) {
-		t.equals( e.message, "Main selector is missing." );
-	}
+    try {
+        cssService.validate( "css" );
+    } catch ( e ) {
+        t.equals( e.message, "Main selector is missing." );
+    }
 
 } );
 
 should( "complain no rules were provided", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	try {
-		cssService.validate( "css", "btn" );
-	} catch ( e ) {
-		t.equals( e.message, "Disallowed properties is missing." );
-	}
+    try {
+        cssService.validate( "css", "btn" );
+    } catch ( e ) {
+        t.equals( e.message, "Disallowed properties is missing." );
+    }
 
 } );
 
 should( "complain disallowed properties is not an array", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	try {
-		cssService.validate( "css", "btn", "disallowed properties", [] );
-	} catch ( e ) {
-		t.equals( e.message, "Disallowed properties is not an array." );
-	}
+    try {
+        cssService.validate( "css", "btn", "disallowed properties", [] );
+    } catch ( e ) {
+        t.equals( e.message, "Disallowed properties is not an array." );
+    }
 
 } );
 
 should( "complain about disallowed CSS properties", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	var css = ".parent { float: right; } .parent .child { text-align: center; } .parent.child2 { color: black; }";
+    var css = ".parent { float: right; } .parent .child { text-align: center; } .parent.child2 { color: black; }";
 
-	try {
-		cssService.validate( css, ".parent", [ "float" ], [] );
-	} catch ( e ) {
-		t.equals( e.message, "The selector \".parent\" cannot have the CSS property \"float\"." );
-	}
+    try {
+        cssService.validate( css, ".parent", [ "float" ], [] );
+    } catch ( e ) {
+        t.equals( e.message, "The selector \".parent\" cannot have the CSS property \"float\"." );
+    }
 
 } );
 
 should( "complain about disallowed property value", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	var css = ".parent .child { text-align: center; } .parent { float: right; position: relative; position: static; }";
+    var css = ".parent .child { text-align: center; } .parent { float: right; position: relative; position: static; }";
 
-	try {
-		cssService.validate( css, ".parent", [ "position=static" ], [] );
-	} catch ( e ) {
-		t.equals( e.message, "The selector \".parent\" cannot have the CSS property \"position=static\"." );
-	}
+    try {
+        cssService.validate( css, ".parent", [ "position=static" ], [] );
+    } catch ( e ) {
+        t.equals( e.message, "The selector \".parent\" cannot have the CSS property \"position=static\"." );
+    }
 
 } );
 
 should( "complain about disallowed CSS units", function( t ) {
 
-	t.plan( 1 );
+    t.plan( 1 );
 
-	var css = ".selector { background-position: left 30EM right; }";
+    var css = ".selector { background-position: left 30EM right; }";
 
-	try {
-		cssService.validate( css, ".selector", [], [ "em" ] );
-	} catch ( e ) {
-		t.equals( e.message, "The property \"background-position\" may not have the value \"left 30EM right\" since containing the unit \"em\"." );
-	}
+    try {
+        cssService.validate( css, ".selector", [], [ "em" ] );
+    } catch ( e ) {
+        t.equals( e.message, "The property \"background-position\" may not have the value \"left 30EM right\" since containing the unit \"em\"." );
+    }
 
 } );
