@@ -71,6 +71,9 @@ function getComponentData( sourceFolder, componentDirectoryName ) {
 
 function build( configuration ) {
 
+    // Write the version
+    logUtil.log( "Main", "Coatroom version 1.1.3." );
+
     // Validate the configuration
     validateConfigurationsService.validate( configuration );
 
