@@ -131,6 +131,8 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
 
             components.forEach( function( component ) {
 
+                var overviewBackgroundColor = component.dss.overviewBackgroundColor;
+
                 html += "<a name='" + module.exports.createComponentAnchorName( component.dss.name ) + "'></a>";
                 html += "<h2>" + component.dss.name + "</h2>";
                 html += "<p>" + component.dss.description + "</p>";
@@ -167,13 +169,13 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
                     {
 
                         // Default type
-                        html += "<td>" + buildTemplateWithClasses( component ) + "</td>";
+                        html += "<td style='background-color: " + overviewBackgroundColor + ";'>" + buildTemplateWithClasses( component ) + "</td>";
 
                         // For all other states
                         if ( component.dss.states ) {
                             component.dss.states.forEach( function( state ) {
                                 // Default state
-                                html += "<td>" + buildTemplateWithClasses( component, undefined, state.name ) + "</td>";
+                                html += "<td style='background-color: " + overviewBackgroundColor + ";'>" + buildTemplateWithClasses( component, undefined, state.name ) + "</td>";
                             } );
                         }
 
@@ -192,7 +194,7 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
                             html += "<td>" + buildTemplateWithClasses( component, type.name ) + "</td>";
                             if ( component.dss.states ) {
                                 component.dss.states.forEach( function( state ) {
-                                    html += "<td>" + buildTemplateWithClasses( component, type.name, state.name ) + "</td>";
+                                    html += "<td style='background-color: " + overviewBackgroundColor + ";'>" + buildTemplateWithClasses( component, type.name, state.name ) + "</td>";
                                 } );
                             }
                             html += "</tr>";

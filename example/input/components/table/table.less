@@ -1,7 +1,8 @@
 /**
   * @name Tables
   * @description For showing tabular data.
-
+  * @overviewBackgroundColor #C0C0C0
+  *
   * @state table-borderless - If a border less table is required
   */
 
@@ -9,8 +10,12 @@
     border-collapse: collapse;
     width: 100%;
     thead tr th {
+        background: @colorClouds;
         font-weight: bold;
         text-align: left;
+    }
+    tbody tr:nth-child(2n) {
+        background-color: lighten(@colorClouds, 30);
     }
     tbody tr:nth-child(2n+1) {
         background-color: lighten(@colorConcrete, 30);

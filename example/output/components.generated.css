@@ -125,7 +125,8 @@
 /**
   * @name Tables
   * @description For showing tabular data.
-
+  * @overviewBackgroundColor #C0C0C0
+  *
   * @state table-borderless - If a border less table is required
   */
 .table {
@@ -133,8 +134,12 @@
   width: 100%;
 }
 .table thead tr th {
+  background: #ecf0f1;
   font-weight: bold;
   text-align: left;
+}
+.table tbody tr:nth-child(2n) {
+  background-color: #ffffff;
 }
 .table tbody tr:nth-child(2n+1) {
   background-color: #e8ecec;

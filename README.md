@@ -96,12 +96,13 @@ Coatroom also uses flavor of [Documented Style Sheets][technology-dss] in order 
 
 Here is a list of supported annotations Coatroom uses:
 
-| Annotation		| Description																																																				|
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `@name`      		| The name of the component.																																																		|
-| `@description`	| A short description of the component.																																														|
-| `@state`			| List of different states the component can be in. CSS pseudo classes (:hover, :active, :disabled) for the component are usually the states, but this can be expanded to custom states depending on your own conventions.	|
-| `@type`			| List of different types the component can be of. For example, a button can be a confirm or a warning button. These should only be small alternative alterations, as only the CSS will change, not the template markup.	|
+| Annotation            		| Description																																																				|
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `@name`               		| The name of the component.																																																|
+| `@description`            	| A short description of the component.																																														|
+| `@state`	            		| List of different states the component can be in. CSS pseudo classes (:hover, :active, :disabled) for the component are usually the states, but this can be expanded to custom states depending on your own conventions.	|
+| `@type            `			| List of different types the component can be of. For example, a button can be a confirm or a warning button. These should only be small alternative alterations, as only the CSS will change, not the template markup.	|
+| `@overviewBackgroundColor`    | If you want to change the color of the component background table cell with a specific color.                                                                                                                             |
 
 [Here is an example of a component LESS.][example-component-less]
 

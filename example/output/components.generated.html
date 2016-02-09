@@ -125,7 +125,8 @@
 /**
   * @name Tables
   * @description For showing tabular data.
-
+  * @overviewBackgroundColor #C0C0C0
+  *
   * @state table-borderless - If a border less table is required
   */
 .table {
@@ -133,8 +134,12 @@
   width: 100%;
 }
 .table thead tr th {
+  background: #ecf0f1;
   font-weight: bold;
   text-align: left;
+}
+.table tbody tr:nth-child(2n) {
+  background-color: #ffffff;
 }
 .table tbody tr:nth-child(2n+1) {
   background-color: #e8ecec;
@@ -234,37 +239,37 @@ so we keep a consistent color schema across all components.</p>
 <div class="color color-rose">@colorLava</div>
 <div class="color color-concrete">@colorConcrete</div>
 
-<a name='buttons'></a><h2>Buttons</h2><p>This is an ordinary button.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>btn-hover</th><th>btn-active</th><th>btn-disabled</th></tr></thead><tbody><tr><td>default</td><td><button type="button" class="btn">
+<a name='buttons'></a><h2>Buttons</h2><p>This is an ordinary button.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>btn-hover</th><th>btn-active</th><th>btn-disabled</th></tr></thead><tbody><tr><td>default</td><td style='background-color: undefined;'><button type="button" class="btn">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-hover">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-hover">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-active">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-active">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-disabled">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-disabled">
     Lorem ipsum button
 </button></td></tr><tr><td>success</td><td><button type="button" class="btn btn-success">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-success btn-hover">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-success btn-hover">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-success btn-active">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-success btn-active">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-success btn-disabled">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-success btn-disabled">
     Lorem ipsum button
 </button></td></tr><tr><td>warning</td><td><button type="button" class="btn btn-warning">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-warning btn-hover">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-warning btn-hover">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-warning btn-active">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-warning btn-active">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-warning btn-disabled">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-warning btn-disabled">
     Lorem ipsum button
 </button></td></tr><tr><td>danger</td><td><button type="button" class="btn btn-danger">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-danger btn-hover">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-danger btn-hover">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-danger btn-active">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-danger btn-active">
     Lorem ipsum button
-</button></td><td><button type="button" class="btn btn-danger btn-disabled">
+</button></td><td style='background-color: undefined;'><button type="button" class="btn btn-danger btn-disabled">
     Lorem ipsum button
 </button></td></tr></tbody></table><p>Please use the appropriate button depending on the context. The default type may only be used during development.</p>
 <p><strong>HTML template</strong></p>
@@ -273,7 +278,7 @@ so we keep a consistent color schema across all components.</p>
     Lorem ipsum button
 &lt;/button&gt;
 </code></pre>
-<a name='tables'></a><h2>Tables</h2><p>For showing tabular data.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>table-borderless</th></tr></thead><tbody><tr><td>default</td><td><table class="table">
+<a name='tables'></a><h2>Tables</h2><p>For showing tabular data.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>table-borderless</th></tr></thead><tbody><tr><td>default</td><td style='background-color: #C0C0C0;'><table class="table">
     <thead>
         <tr>
             <th>First name</th>
@@ -302,7 +307,7 @@ so we keep a consistent color schema across all components.</p>
             <td>28</td>
         </tr>
     </tbody>
-</table></td><td><table class="table table-borderless">
+</table></td><td style='background-color: #C0C0C0;'><table class="table table-borderless">
     <thead>
         <tr>
             <th>First name</th>
@@ -346,19 +351,19 @@ so we keep a consistent color schema across all components.</p>
     &lt;/tbody&gt;
 &lt;/table&gt;
 </code></pre>
-<a name='text-inputs'></a><h2>Text inputs</h2><p>Use this for standard text inputs.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>textinput-hover</th><th>textinput-focus</th><th>textinput-disabled</th><th>textinput-invalid</th></tr></thead><tbody><tr><td>default</td><td><div class="textinput">
+<a name='text-inputs'></a><h2>Text inputs</h2><p>Use this for standard text inputs.</p><h3>Overview</h3><table><thead><tr><th>type / state</th><th>default</th><th>textinput-hover</th><th>textinput-focus</th><th>textinput-disabled</th><th>textinput-invalid</th></tr></thead><tbody><tr><td>default</td><td style='background-color: undefined;'><div class="textinput">
     <input type="text" placeholder="Lorem ipsum placeholder" class="textinput-input" />
     <label class="textinput-label">Lorem ipsum label</label>
-</div></td><td><div class="textinput textinput-hover">
+</div></td><td style='background-color: undefined;'><div class="textinput textinput-hover">
     <input type="text" placeholder="Lorem ipsum placeholder" class="textinput-input" />
     <label class="textinput-label">Lorem ipsum label</label>
-</div></td><td><div class="textinput textinput-focus">
+</div></td><td style='background-color: undefined;'><div class="textinput textinput-focus">
     <input type="text" placeholder="Lorem ipsum placeholder" class="textinput-input" />
     <label class="textinput-label">Lorem ipsum label</label>
-</div></td><td><div class="textinput textinput-disabled">
+</div></td><td style='background-color: undefined;'><div class="textinput textinput-disabled">
     <input type="text" placeholder="Lorem ipsum placeholder" class="textinput-input" />
     <label class="textinput-label">Lorem ipsum label</label>
-</div></td><td><div class="textinput textinput-invalid">
+</div></td><td style='background-color: undefined;'><div class="textinput textinput-invalid">
     <input type="text" placeholder="Lorem ipsum placeholder" class="textinput-input" />
     <label class="textinput-label">Lorem ipsum label</label>
 </div></td></tr></tbody></table><p><strong>HTML template</strong></p>

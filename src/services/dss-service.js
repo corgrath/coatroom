@@ -21,9 +21,11 @@ var dss = require( "dss" );
 var stringUtil = require( "../utils/string-util.js" );
 
 dss.parser( "type", function( i, line /*, block*/ ) {
-
     return module.exports._parseAnnotation( line );
+} );
 
+dss.parser( "overviewBackgroundColor", function( i, line /*, block*/ ) {
+    return line;
 } );
 
 module.exports._parseAnnotation = function( line ) {
@@ -99,14 +101,16 @@ module.exports.parse = function( componentName, lessSource ) {
                 dssData.blocks[ 0 ].type = [ dssData.blocks[ 0 ].type ];
             }
 
-            //console.log("anders", JSON.stringify(dssData.blocks[0], null, "\t"));
-
             var data = {
                 name: dssData.blocks[ 0 ].name,
                 description: dssData.blocks[ 0 ].description,
                 states: dssData.blocks[ 0 ].state,
-                types: dssData.blocks[ 0 ].type
+                types: dssData.blocks[ 0 ].type,
+                overviewBackgroundColor: dssData.blocks[ 0 ].overviewBackgroundColor
             };
+
+//            console.log("dssData.blocks[ 0 ]", JSON.stringify(dssData.blocks[ 0 ], null, "\t"));
+//            console.log("data", JSON.stringify(data, null, "\t"));
 
             resolve( data );
 
