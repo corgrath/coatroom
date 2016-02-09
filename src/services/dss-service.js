@@ -109,8 +109,8 @@ module.exports.parse = function( componentName, lessSource ) {
                 overviewBackgroundColor: dssData.blocks[ 0 ].overviewBackgroundColor
             };
 
-//            console.log("dssData.blocks[ 0 ]", JSON.stringify(dssData.blocks[ 0 ], null, "\t"));
-//            console.log("data", JSON.stringify(data, null, "\t"));
+            //            console.log("dssData.blocks[ 0 ]", JSON.stringify(dssData.blocks[ 0 ], null, "\t"));
+            //            console.log("data", JSON.stringify(data, null, "\t"));
 
             resolve( data );
 

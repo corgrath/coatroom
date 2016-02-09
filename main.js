@@ -28,6 +28,7 @@ var inputScriptsService = require( "./src/services/input-scripts-service.js" );
 var validateConfigurationsService = require( "./src/services/validate-configurations-service.js" );
 var cssService = require( "./src/services/css-service.js" );
 var logUtil = require( "./src/utils/log-util.js" );
+var packageService = require( "./src/services/package-service.js" );
 
 function getComponentData( sourceFolder, componentDirectoryName ) {
 
@@ -72,7 +73,7 @@ function getComponentData( sourceFolder, componentDirectoryName ) {
 function build( configuration ) {
 
     // Write the version
-    logUtil.log( "Main", "Coatroom version 1.1.4." );
+    logUtil.log( "Main", "Coatroom version " + packageService.getVersion() + "." );
 
     // Validate the configuration
     validateConfigurationsService.validate( configuration );
