@@ -82,30 +82,27 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
 
     html += "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css\">";
     html += "<style>";
-    html += "body { font-family: 'Open Sans', sans-serif; font-size: 14px; }";
-    html += "table { width: 100%;   border-collapse: collapse; }";
-    html += "table thead tr { background: white; }";
-    html += "table th, table td {";
-    html += "padding: 10px; border: 1px solid #5AB6F6; vertical-align: top;";
-    html += "}";
-
-    html += "a { text-decoration: none; color: #3498db; }";
-    html += "a:hover { text-decoration: underline; }";
-    html += "blockquote { font-style: italic; }";
-    html += ".section-leftmenu { background: #ecf0f1; padding: 10px; position: fixed; top: 10px; left: 10px; width: 150px; }";
-    html += ".section-leftmenu a, .section-leftmenu div { display: block; padding: 10px; text-decoration: none; color: black; }";
-    html += ".section-leftmenu a.component { padding-left: 20px; }";
-    html += ".section-leftmenu a:hover { color: #ecf0f1; background: #3498db; }";
-    html += ".section-components { background: #ecf0f1; padding: 10px; position: absolute; top: 10px; left: 190px; right: 10px; }";
-    html += ".section-components h2:not(:first-of-type) { padding-top: 75px; }";
-    html += ".section-components code { border: 1px solid silver; background-color: white; }";
-    html += ".hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-meta-keyword, .hljs-doctag, .hljs-name { font-weight: normal; }";
+    html += ".coatroom { font-family: \"Open Sans\", sans-serif; font-size: 14px; }";
+    html += ".coatroom table { width: 100%;   border-collapse: collapse; }";
+    html += ".coatroom table thead tr { background: white; }";
+    html += ".coatroom table th, table td { padding: 10px; border: 1px solid #5AB6F6; vertical-align: top; }";
+    html += ".coatroom a { text-decoration: none; color: #3498db; }";
+    html += ".coatroom a:hover { text-decoration: underline; }";
+    html += ".coatroom blockquote { font-style: italic; }";
+    html += ".coatroom .section-leftmenu { background: #ecf0f1; padding: 10px; position: fixed; top: 10px; left: 10px; width: 150px; }";
+    html += ".coatroom .section-leftmenu a, .section-leftmenu div { display: block; padding: 10px; text-decoration: none; color: black; }";
+    html += ".coatroom .section-leftmenu a.component { padding-left: 20px; }";
+    html += ".coatroom .section-leftmenu a:hover { color: #ecf0f1; background: #3498db; }";
+    html += ".coatroom .section-components { background: #ecf0f1; padding: 10px; position: absolute; top: 10px; left: 190px; right: 10px; }";
+    html += ".coatroom .section-components h2:not(:first-of-type) { padding-top: 75px; }";
+    html += ".coatroom .section-components code { border: 1px solid silver; background-color: white; }";
+    html += ".coatroom .hljs-keyword, .coatroom .hljs-attribute, .coatroom .hljs-selector-tag, .coatroom .hljs-meta-keyword, .coatroom .hljs-doctag, .coatroom .hljs-name { font-weight: normal; }";
     html += "</style>";
     html += "<style>";
     html += css;
     html += "</style>";
     html += "</head>";
-    html += "<body class=\"coatroom overview\">";
+    html += "<body class=\"coatroom\">";
 
     {
 
