@@ -105,7 +105,7 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
     html += css;
     html += "</style>";
     html += "</head>";
-    html += "<body class=\"overview\">";
+    html += "<body class=\"coatroom overview\">";
 
     {
 
@@ -137,12 +137,12 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
 
         {
 
-            html += "<div class='section-components'>";
+            html += "<div class=\"section-components\">";
             html += "<h1>" + documentTitle + "</h1>";
 
             styleguides.forEach( function( styleguide ) {
 
-                html += "<a name='" + module.exports.createSafeAnchorName( styleguide.label ) + "'></a>";
+                html += "<a name=\"" + module.exports.createSafeAnchorName( styleguide.label ) + "\"></a>";
                 html += "<h2>" + styleguide.label + "</h2>";
 
                 html += styleguide.html;
@@ -195,7 +195,7 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
                         if ( component.dss.states ) {
                             component.dss.states.forEach( function( state ) {
                                 // Default state
-                                html += "<td style='background-color: " + overviewBackgroundColor + ";'>" + buildTemplateWithClasses( component, undefined, state.name ) + "</td>";
+                                html += "<td style=\"background-color: " + overviewBackgroundColor + ";\">" + buildTemplateWithClasses( component, undefined, state.name ) + "</td>";
                             } );
                         }
 
@@ -243,6 +243,8 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
         html += scripts;
         html += "</script>";
     }
+
+    // Code highlighting
     html += "<script src='https://cdn.jsdelivr.net/highlight.js/9.0.0/highlight.min.js'></script>";
     html += "<script>hljs.initHighlightingOnLoad();</script>";
 
