@@ -149,7 +149,7 @@ function build( configuration ) {
             }
 
             // Generate the overview page
-            var html = overviewPageService.generate( configuration.title, scripts, css, styleguides, components );
+            var html = overviewPageService.generate( configuration.title, scripts, css, styleguides, components, configuration.input.externalStylesheets );
             fileService.writeFile( configuration.output.overview, html );
 
             var buildDuration = new Date().getTime() - timeStarted;

@@ -63,6 +63,7 @@ In order to invoke Coatroom, a configuration object is required. An example of t
 | `input.lessModifyVars {object} [optional]`						| An object with modified LESS variables supported by the [LESS tool](technology-less-modifyvars).                                   		                           	                                		|
 | `input.styleguides {object} [optional]`							| An object to add external style guide documents. Keys is the document title, value is the path to the file.															                                   		|
 | `input.scripts {array of strings} [optional]`						| An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                                                  	|
+| `input.externalStylesheets {array of strings} [optional]`			| An array of external CSS stylesheets that may be appended to the overview page, enable it to include external custom CSS such as fonts.                   	                                                |
 | `output {object}`													| 																																								                                				|
 | `output.overview {string}`										| Path to a file which will be the generated overview page.																										                                				|
 | `output.less {string}`											| Path to a file which will be the generated concatenated LESS file.																									                                		|

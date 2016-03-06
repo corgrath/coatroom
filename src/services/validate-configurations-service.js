@@ -98,6 +98,18 @@ module.exports.validate = function validate( configuration ) {
 
             }
 
+            if ( configuration.input.externalStylesheets !== undefined ) {
+
+                if ( !assert.isArray( configuration.input.externalStylesheets ) ) {
+                    throw new Error( "Configuration \"input.externalStylesheets\" is not an array." );
+                }
+
+                if ( configuration.input.externalStylesheets.length === 0 ) {
+                    throw new Error( "Configuration \"input.externalStylesheets\" cannot be empty." );
+                }
+
+            }
+
         }
 
         if ( !configuration.output ) {
@@ -155,7 +167,7 @@ module.exports.validate = function validate( configuration ) {
      */
 
     validateObjectProperties( configuration, "", [ "title", "input", "output", "validation" ] );
-    validateObjectProperties( configuration.input, "input", [ "components", "less", "lessModifyVars", "scripts", "styleguides" ] );
+    validateObjectProperties( configuration.input, "input", [ "components", "less", "lessModifyVars", "scripts", "styleguides", "externalStylesheets" ] );
     validateObjectProperties( configuration.output, "output", [ "overview", "less", "css" ] );
     validateObjectProperties( configuration.validation, "validation", [ "disallowedCSSRules", "disallowedCSSUnits" ] );
 

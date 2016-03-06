@@ -50,17 +50,37 @@ module.exports.createSafeAnchorName = function( name ) {
 
 };
 
-module.exports.generate = function( documentTitle, scripts, css, styleguides, components ) {
+module.exports.generate = function( documentTitle, scripts, css, styleguides, components, externalStylesheets ) {
+
+    /*
+     * Init
+     */
+
+    if ( !externalStylesheets ) {
+        externalStylesheets = [ "http://fonts.googleapis.com/css?family=Open+Sans" ];
+    } else {
+        externalStylesheets.push( "http://fonts.googleapis.com/css?family=Open+Sans" );
+    }
+
+    /*
+     * Render
+     */
 
     var html = "";
 
-    html += "<!doctype html>";
+    html += "<!DOCTYPE html>";
     html += "<html lang=\"en\">";
     html += "<head>";
     html += "<meta charset=\"utf-8\">";
     html += "<title>" + documentTitle + "</title>";
-    html += "<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>";
-    html += "<link rel='stylesheet'' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css'>";
+
+    if ( externalStylesheets ) {
+        externalStylesheets.forEach( function( externalStylesheet ) {
+            html += "<link href=\"" + externalStylesheet + "\" rel=\"stylesheet\" type=\"text/css\">";
+        } );
+    }
+
+    html += "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css\">";
     html += "<style>";
     html += "body { font-family: 'Open Sans', sans-serif; font-size: 14px; }";
     html += "table { width: 100%;   border-collapse: collapse; }";

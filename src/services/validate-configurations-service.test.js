@@ -176,6 +176,54 @@ test( "complain input.scripts is an empty array", function( t ) {
 
 } );
 
+test( "complain input.externalStylesheets is not an array", function( t ) {
+
+    t.plan( 1 );
+
+    var configuration = {
+        title: "title",
+        input: {
+            components: "/components/",
+            externalStylesheets: "externalStyleSheets"
+        },
+        output: {
+            overview: "overview.html",
+            less: "components.less"
+        }
+    };
+
+    try {
+        validateConfigurationsService.validate( configuration );
+    } catch ( e ) {
+        t.equals( e.message, "Configuration \"input.externalStylesheets\" is not an array." );
+    }
+
+} );
+
+test( "complain input.externalStylesheets is an empty array", function( t ) {
+
+    t.plan( 1 );
+
+    var configuration = {
+        title: "title",
+        input: {
+            components: "/components/",
+            externalStylesheets: []
+        },
+        output: {
+            overview: "overview.html",
+            less: "components.less"
+        }
+    };
+
+    try {
+        validateConfigurationsService.validate( configuration );
+    } catch ( e ) {
+        t.equals( e.message, "Configuration \"input.externalStylesheets\" cannot be empty." );
+    }
+
+} );
+
 test( "complain validation.disallowedCSSRules is not an array", function( t ) {
 
     t.plan( 1 );
