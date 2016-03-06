@@ -39,7 +39,7 @@ function buildTemplateWithClasses( component, type, state ) {
     } );
 }
 
-module.exports.createComponentAnchorName = function( name ) {
+module.exports.createSafeAnchorName = function( name ) {
 
     name = name.trim();
     name = name.toLowerCase();
@@ -98,13 +98,13 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
             html += "<div class='section-leftmenu'>";
 
             styleguides.forEach( function( styleguide ) {
-                html += "<a href='#" + styleguide.label + "'>" + styleguide.label + "</a>";
+                html += "<a href='#" + module.exports.createSafeAnchorName( styleguide.label ) + "'>" + styleguide.label + "</a>";
             } );
 
             html += "<div>Components</div>";
 
             components.forEach( function( component ) {
-                html += "<a href='#" + module.exports.createComponentAnchorName( component.dss.name ) + "' class='component'>" + component.dss.name + "</a>";
+                html += "<a href='#" + module.exports.createSafeAnchorName( component.dss.name ) + "' class='component'>" + component.dss.name + "</a>";
             } );
 
             html += "</div>";
@@ -122,7 +122,7 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
 
             styleguides.forEach( function( styleguide ) {
 
-                html += "<a name='" + styleguide.label + "'></a>";
+                html += "<a name='" + module.exports.createSafeAnchorName( styleguide.label ) + "'></a>";
                 html += "<h2>" + styleguide.label + "</h2>";
 
                 html += styleguide.html;
@@ -133,7 +133,7 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
 
                 var overviewBackgroundColor = component.dss.overviewBackgroundColor;
 
-                html += "<a name='" + module.exports.createComponentAnchorName( component.dss.name ) + "'></a>";
+                html += "<a name='" + module.exports.createSafeAnchorName( component.dss.name ) + "'></a>";
                 html += "<h2>" + component.dss.name + "</h2>";
                 html += "<p>" + component.dss.description + "</p>";
 

@@ -22,6 +22,6 @@ var overviewPageService = require( "./overview-page-service.js" );
 test( "createComponentAnchorName", function( t ) {
 
     t.plan( 1 );
-    t.equals( overviewPageService.createComponentAnchorName( "  my  awesome button  " ), "my-awesome-button" );
+    t.equals( overviewPageService.createSafeAnchorName( "  my  awesome button  " ), "my-awesome-button" );
 
 } );
