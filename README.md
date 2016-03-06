@@ -54,23 +54,25 @@ The configuration object
 ------------------------------------------------------------------------------------------------------------------------
 In order to invoke Coatroom, a configuration object is required. An example of the configuration object can be found [here](https://github.com/corgrath/coatroom/blob/master/example/example.js).
 
-| Property name														| Explanation																																							                                		|
+| Property name                                                     | Explanation                                                                                                                                                                                                   |
 |-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title {string}`													| The title of the overview page.																																		                                		|
-| `input {object}`													| 																																											                                	|
-| `input.components {string}`										| Path to the folder where the components are located.																														                                	|
-| `input.less {array of strings} [optional]`						| An array of .less files. These files will automatically be prepended to the generated .less file. If your components or style guides use any shared LESS use this option.	                                	|
-| `input.lessModifyVars {object} [optional]`						| An object with modified LESS variables supported by the [LESS tool](technology-less-modifyvars).                                   		                           	                                		|
-| `input.styleguides {object} [optional]`							| An object to add external style guide documents. Keys is the document title, value is the path to the file.															                                   		|
-| `input.scripts {array of strings} [optional]`						| An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                                                  	|
-| `input.externalStylesheets {array of strings} [optional]`			| An array of external CSS stylesheets that may be appended to the overview page, enable it to include external custom CSS such as fonts.                   	                                                |
-| `output {object}`													| 																																								                                				|
-| `output.overview {string}`										| Path to a file which will be the generated overview page.																										                                				|
-| `output.less {string}`											| Path to a file which will be the generated concatenated LESS file.																									                                		|
-| `output.css {string} [optional]`									| Path to a file which will be the generated compiled CSS file.																											                                		|
-| `validation {string} [optional]`									|																																											                                	|
-| `validation.disallowedCSSRules {array of strings} [optional]`		| An array of CSS properties that should be disallowed within components. It is also possible to disallow property values by writing `position=absolute`, while allowing all other values with `z-index!=0`.	|
-| `validation.disallowedCSSUnits {array of strings} [optional]`		| An array of units that should be disallowed within components.			                                																									|
+| `title {string}`                                                  | The title of the overview page.                                                                                                                                                                               |
+| `input {object}`                                                  |                                                                                                                                                                                                               |
+| `input.components {string}`                                       | Path to the folder where the components are located.                                                                                                                                                          |
+| `input.less {array of strings} [optional]`                        | An array of .less files. These files will automatically be prepended to the generated .less file. If your components or style guides use any shared LESS use this option.                                     |
+| `input.lessModifyVars {object} [optional]`                        | An object with modified LESS variables supported by the [LESS tool](technology-less-modifyvars).                                                                                                              |
+| `input.styleguides {object} [optional]`                           | An object to add external style guide documents. Keys is the document title, value is the path to the file.                                                                                                   |
+| `input.scripts {array of strings} [optional]`                     | An array of .js JavaScript files. These files will automatically be appended to the overview page, enable it to include custom JavaScript.                                                                    |
+| `input.externalStylesheets {array of strings} [optional]`         | An array of external CSS stylesheets that may be appended to the overview page, enable it to include external custom CSS such as fonts.                                                                       |
+| `input.defaultTableHeaderBackgroundColor {strings} [optional]`    | Possible to set a custom table header color.                                                                                                                                                                  |
+| `input.defaultTableCellBackgroundColor {strings} [optional]`      | Possible to set a custom table cell color.                                                                                                                                                                    |
+| `output {object}`                                                 |                                                                                                                                                                                                               |
+| `output.overview {string}`                                        | Path to a file which will be the generated overview page.                                                                                                                                                     |
+| `output.less {string}`                                            | Path to a file which will be the generated concatenated LESS file.                                                                                                                                            |
+| `output.css {string} [optional]`                                  | Path to a file which will be the generated compiled CSS file.                                                                                                                                                 |
+| `validation {string} [optional]`                                  |                                                                                                                                                                                                               |
+| `validation.disallowedCSSRules {array of strings} [optional]`     | An array of CSS properties that should be disallowed within components. It is also possible to disallow property values by writing `position=absolute`, while allowing all other values with `z-index!=0`.    |
+| `validation.disallowedCSSUnits {array of strings} [optional]`     | An array of units that should be disallowed within components.                                                                                                                                                |
 
 
 
@@ -97,12 +99,12 @@ Coatroom also uses flavor of [Documented Style Sheets][technology-dss] in order 
 
 Here is a list of supported annotations Coatroom uses:
 
-| Annotation            		| Description																																																				|
+| Annotation                    | Description                                                                                                                                                                                                               |
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `@name`               		| The name of the component.																																																|
-| `@description`            	| A short description of the component.																																														|
-| `@state`	            		| List of different states the component can be in. CSS pseudo classes (:hover, :active, :disabled) for the component are usually the states, but this can be expanded to custom states depending on your own conventions.	|
-| `@type            `			| List of different types the component can be of. For example, a button can be a confirm or a warning button. These should only be small alternative alterations, as only the CSS will change, not the template markup.	|
+| `@name`                       | The name of the component.                                                                                                                                                                                                |
+| `@description`                | A short description of the component.                                                                                                                                                                                     |
+| `@state`                      | List of different states the component can be in. CSS pseudo classes (:hover, :active, :disabled) for the component are usually the states, but this can be expanded to custom states depending on your own conventions.  |
+| `@type`                       | List of different types the component can be of. For example, a button can be a confirm or a warning button. These should only be small alternative alterations, as only the CSS will change, not the template markup.    |
 | `@overviewBackgroundColor`    | If you want to change the color of the component background table cell with a specific color.                                                                                                                             |
 
 [Here is an example of a component LESS.][example-component-less]
@@ -186,23 +188,23 @@ Coatroom is licensed under the [Apache License, Version 2.0](http://opensource.o
 
 
 
-[technology-less]:					http://lesscss.org/
-[technology-less-modifyvars]:		http://lesscss.org/usage/#command-line-usage-modify-variable
-[technology-markdown]:				https://daringfireball.net/projects/markdown/
-[technology-dss]:					https://www.npmjs.com/package/dss/
-[technology-html]:					https://en.wikipedia.org/wiki/HTML
-[technology-css]:					https://en.wikipedia.org/wiki/Cascading_Style_Sheets
-[technology-grunt]:					http://gruntjs.com/
+[technology-less]:                  http://lesscss.org/
+[technology-less-modifyvars]:       http://lesscss.org/usage/#command-line-usage-modify-variable
+[technology-markdown]:              https://daringfireball.net/projects/markdown/
+[technology-dss]:                   https://www.npmjs.com/package/dss/
+[technology-html]:                  https://en.wikipedia.org/wiki/HTML
+[technology-css]:                   https://en.wikipedia.org/wiki/Cascading_Style_Sheets
+[technology-grunt]:                 http://gruntjs.com/
 
-[example-folder]:					https://github.com/corgrath/coatroom/tree/master/example/
-[example-overview]:					http://corgrath.github.io/coatroom/example/output/components.generated.html
+[example-folder]:                   https://github.com/corgrath/coatroom/tree/master/example/
+[example-overview]:                 http://corgrath.github.io/coatroom/example/output/components.generated.html
 
-[example-component]:				https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/
-[example-bootstrap-grunt]:			https://github.com/corgrath/coatroom/blob/master/example/example-grunt-task.js
-[example-component-less]:			https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/btn.less
-[example-component-template]:		https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/btn.mustache
-[example-component-styleguide]:		https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/btn.md
+[example-component]:                https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/
+[example-bootstrap-grunt]:          https://github.com/corgrath/coatroom/blob/master/example/example-grunt-task.js
+[example-component-less]:           https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/btn.less
+[example-component-template]:       https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/btn.mustache
+[example-component-styleguide]:     https://github.com/corgrath/coatroom/blob/master/example/input/components/btn/btn.md
 
-[project-changelog]:				https://github.com/corgrath/coatroom/graphs/contributors
-[project-contributors]:				https://github.com/corgrath/coatroom/blob/master/CHANGELOG.md 
-[project-issues]:					https://github.com/corgrath/coatroom/issues
+[project-changelog]:                https://github.com/corgrath/coatroom/graphs/contributors
+[project-contributors]:             https://github.com/corgrath/coatroom/blob/master/CHANGELOG.md
+[project-issues]:                   https://github.com/corgrath/coatroom/issues

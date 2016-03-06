@@ -149,7 +149,13 @@ function build( configuration ) {
             }
 
             // Generate the overview page
-            var html = overviewPageService.generate( configuration.title, scripts, css, styleguides, components, configuration.input.externalStylesheets );
+            var overviewConfiguration = {
+                externalStylesheets: configuration.input.externalStylesheets,
+                defaultTableHeaderBackgroundColor: configuration.input.defaultTableHeaderBackgroundColor,
+                defaultTableCellBackgroundColor: configuration.input.defaultTableCellBackgroundColor
+            };
+
+            var html = overviewPageService.generate( configuration.title, scripts, css, styleguides, components, overviewConfiguration );
             fileService.writeFile( configuration.output.overview, html );
 
             var buildDuration = new Date().getTime() - timeStarted;

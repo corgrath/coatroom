@@ -17,6 +17,11 @@
 
 var mustacheService = require( "./mustache-service.js" );
 
+var OVERVIEW_EXTERNAL_CSS = [
+    "http://fonts.googleapis.com/css?family=Open+Sans",
+    "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css"
+];
+
 function createClasses( componentBaseClass, type, state ) {
 
     var classes = componentBaseClass;
@@ -50,16 +55,24 @@ module.exports.createSafeAnchorName = function( name ) {
 
 };
 
-module.exports.generate = function( documentTitle, scripts, css, styleguides, components, externalStylesheets ) {
+module.exports.generate = function( documentTitle, scripts, css, styleguides, components, configuration ) {
 
     /*
      * Init
      */
 
-    if ( !externalStylesheets ) {
-        externalStylesheets = [ "http://fonts.googleapis.com/css?family=Open+Sans" ];
+    if ( !configuration.defaultTableHeaderBackgroundColor ) {
+        configuration.defaultTableHeaderBackgroundColor = "white";
+    }
+
+    if ( !configuration.defaultTableCellBackgroundColor ) {
+        configuration.defaultTableCellBackgroundColor = "transparent";
+    }
+
+    if ( !configuration.externalStylesheets ) {
+        configuration.externalStylesheets = OVERVIEW_EXTERNAL_CSS;
     } else {
-        externalStylesheets.push( "http://fonts.googleapis.com/css?family=Open+Sans" );
+        configuration.externalStylesheets.concat( OVERVIEW_EXTERNAL_CSS );
     }
 
     /*
@@ -74,18 +87,18 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
     html += "<meta charset=\"utf-8\">";
     html += "<title>" + documentTitle + "</title>";
 
-    if ( externalStylesheets ) {
-        externalStylesheets.forEach( function( externalStylesheet ) {
-            html += "<link href=\"" + externalStylesheet + "\" rel=\"stylesheet\" type=\"text/css\">";
-        } );
-    }
+    configuration.externalStylesheets.forEach( function( externalStylesheet ) {
+        html += "<link href=\"" + externalStylesheet + "\" rel=\"stylesheet\" type=\"text/css\">";
+    } );
 
     html += "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css\">";
     html += "<style>";
     html += ".coatroom { font-family: \"Open Sans\", sans-serif; font-size: 14px; }";
     html += ".coatroom table { width: 100%;   border-collapse: collapse; }";
     html += ".coatroom table thead tr { background: white; }";
-    html += ".coatroom table th, table td { padding: 10px; border: 1px solid #5AB6F6; vertical-align: top; }";
+    html += ".coatroom table th, .coatroom table td { padding: 10px; border: 1px solid #5AB6F6; vertical-align: top; }";
+    html += ".coatroom table thead tr th { background-color: " + configuration.defaultTableHeaderBackgroundColor + "; }";
+    html += ".coatroom table tbody tr td { background-color: " + configuration.defaultTableCellBackgroundColor + "; }";
     html += ".coatroom a { text-decoration: none; color: #3498db; }";
     html += ".coatroom a:hover { text-decoration: underline; }";
     html += ".coatroom blockquote { font-style: italic; }";

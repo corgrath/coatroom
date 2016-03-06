@@ -352,6 +352,46 @@ test( "complain input.styleguides is not an array", function( t ) {
 
 } );
 
+test( "complain input.defaultTableHeaderBackgroundColor is not a string", function( t ) {
+
+    t.plan( 1 );
+
+    var configuration = {
+        title: "title",
+        input: {
+            components: "/components/",
+            defaultTableHeaderBackgroundColor: []
+        }
+    };
+
+    try {
+        validateConfigurationsService.validate( configuration );
+    } catch ( e ) {
+        t.equals( e.message, "Configuration \"input.defaultTableHeaderBackgroundColor\" is not a string." );
+    }
+
+} );
+
+test( "complain input.defaultTableCellBackgroundColor is not a string", function( t ) {
+
+    t.plan( 1 );
+
+    var configuration = {
+        title: "title",
+        input: {
+            components: "/components/",
+            defaultTableCellBackgroundColor: []
+        }
+    };
+
+    try {
+        validateConfigurationsService.validate( configuration );
+    } catch ( e ) {
+        t.equals( e.message, "Configuration \"input.defaultTableCellBackgroundColor\" is not a string." );
+    }
+
+} );
+
 test( "complain on unknown configurations", function( t ) {
 
     t.plan( 3 );

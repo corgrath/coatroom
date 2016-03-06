@@ -110,6 +110,22 @@ module.exports.validate = function validate( configuration ) {
 
             }
 
+            if ( configuration.input.defaultTableHeaderBackgroundColor !== undefined ) {
+
+                if ( !assert.isString( configuration.input.defaultTableHeaderBackgroundColor ) ) {
+                    throw new Error( "Configuration \"input.defaultTableHeaderBackgroundColor\" is not a string." );
+                }
+
+            }
+
+            if ( configuration.input.defaultTableCellBackgroundColor !== undefined ) {
+
+                if ( !assert.isString( configuration.input.defaultTableCellBackgroundColor ) ) {
+                    throw new Error( "Configuration \"input.defaultTableCellBackgroundColor\" is not a string." );
+                }
+
+            }
+
         }
 
         if ( !configuration.output ) {
@@ -167,7 +183,16 @@ module.exports.validate = function validate( configuration ) {
      */
 
     validateObjectProperties( configuration, "", [ "title", "input", "output", "validation" ] );
-    validateObjectProperties( configuration.input, "input", [ "components", "less", "lessModifyVars", "scripts", "styleguides", "externalStylesheets" ] );
+    validateObjectProperties( configuration.input, "input", [
+        "components",
+        "less",
+        "lessModifyVars",
+        "scripts",
+        "styleguides",
+        "externalStylesheets",
+        "defaultTableHeaderBackgroundColor",
+        "defaultTableCellBackgroundColor"
+    ] );
     validateObjectProperties( configuration.output, "output", [ "overview", "less", "css" ] );
     validateObjectProperties( configuration.validation, "validation", [ "disallowedCSSRules", "disallowedCSSUnits" ] );
 
