@@ -84,6 +84,7 @@ module.exports.generate = function( documentTitle, scripts, css, styleguides, co
     html += "<!DOCTYPE html>";
     html += "<html lang=\"en\">";
     html += "<head>";
+    html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
     html += "<meta charset=\"utf-8\">";
     html += "<title>" + documentTitle + "</title>";
 
