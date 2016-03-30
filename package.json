@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/corgrath/coatroom",
   "scripts": {
-    "build-example": "node example\\example.js",
+    "build-example": "node example/example.js",
     "build-code": "grunt --gruntfile tools/gruntfile.js",
-    "test": "tape src\\**\\*.test.js | tap-spec"
+    "test": "tape src/**/*.test.js | tap-spec"
   },
   "dependencies": {
     "bluebird": "^3.0.6",
