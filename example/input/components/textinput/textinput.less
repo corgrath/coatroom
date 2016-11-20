@@ -21,7 +21,7 @@
         &:disabled,
         .textinput-focus &,
         &:focus {
-            & + label {
+            &+label {
                 opacity: 1;
             }
         }
@@ -45,7 +45,7 @@
             border: 1px solid @colorLava;
             background: lighten(@colorLava, 20);
             color: @colorClouds;
-            & + label {
+            &+label {
                 color: @colorLava;
             }
         }
@@ -54,7 +54,7 @@
             background: greyscale(@colorConcrete) !important;
             color: greyscale(@colorClouds) !important;
             cursor: default;
-            & + label {
+            &+label {
                 opacity: 1;
             }
         }
