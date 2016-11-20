@@ -41,7 +41,6 @@
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.3",
-    "grunt-eslint": "^17.3.1",
     "grunt-jsbeautifier": "^0.2.10",
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2"
